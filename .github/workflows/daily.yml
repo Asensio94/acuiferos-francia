@@ -1,0 +1,67 @@
+name: Niveles diarios
+
+# Once a day: re-read the last months of every active piezometer (raw readings get corrected
+# when the producer validates them), take today's VigiEau restrictions and publish the page.
+# Hub'Eau loads the previous day overnight; 06:30 UTC finds it there.
+on:
+  schedule:
+    - cron: "30 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write           # commit the monthly series and publish gh-pages
+
+concurrency:
+  group: daily
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m pytest -q
+
+      - name: Fetch levels and restrictions, render the page
+        run: |
+          python -m acuiferos.cli vigieau
+          python -m acuiferos.cli fetch
+          python -m acuiferos.cli page
+
+      - name: Commit the series
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "Nothing new."
+          else
+            git commit -q -m "Niveles al $(date -u +%Y-%m-%d)"
+            # On a clash the series just fetched win: they are the newest reading.
+            git pull --rebase --autostash -X theirs origin main
+            git push origin HEAD:main
+          fi
+
+      # gh-pages is a single orphan commit replaced every day: the page and its 2 600 small
+      # JSON files are rebuilt from the series on main, so their history adds nothing.
+      - name: Publish
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          rm -rf publish && mkdir publish
+          cp -r docs/. publish/ && touch publish/.nojekyll
+          cd publish
+          git init -q -b gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A && git commit -q -m "Página del $(date -u +%Y-%m-%d)"
+          git push -q --force "https://x-access-token:$TOKEN@github.com/$REPO.git" HEAD:gh-pages

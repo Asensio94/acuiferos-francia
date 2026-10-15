@@ -10,7 +10,8 @@ from zoneinfo import ZoneInfo
 
 from . import vigieau
 from .config import (COMPLETE_SHARE, DATA_DIR, DISCORDANT_LOW_SHARE, DOCS_DIR, MIN_DEPARTMENT_POINTS,
-                     MIN_REFERENCE_YEARS, NORMAL_P, POINTS_DIR, REFRESH_MONTHS)
+                     MIN_REFERENCE_YEARS, NORMAL_P, POINTS_DIR, REFRESH_MONTHS, SURFACE_FULL_KM,
+                     SURFACE_MAX_KM)
 from .ips import CLASSES, LABELS, band, class_of, classify, months_before
 from .logo import LOGO_SVG, favicon_link
 from .report import Department, Point, Report, build
@@ -52,6 +53,9 @@ h2{{font:700 26px/1.1 var(--font-title);text-transform:uppercase;letter-spacing:
 .dep.rx{{fill:transparent}}
 .hide-restr .dep{{fill:transparent!important}}
 .leaflet-deps-pane svg{{max-width:none!important;max-height:none!important}}
+.surf .dep{{fill:transparent!important}}
+.legend[hidden]{{display:none}}
+.view{{display:flex;flex-wrap:wrap;gap:6px 14px;margin:10px 0;font-size:14px;align-items:center}}
 .legend{{display:flex;flex-wrap:wrap;gap:6px 18px;margin:10px 0;font-size:14px;align-items:center}}
 .legend span{{display:inline-flex;align-items:center;gap:6px}}
 .sw{{width:12px;height:12px;border-radius:50%;display:inline-block;border:1px solid var(--line)}}
@@ -132,7 +136,7 @@ def write_points(rep: Report) -> None:
             json.dumps(point_json(p, rep.month), ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
         if s["lat"] and s["lon"]:
             compact.append([s["bss_id"], float(s["lat"]), float(s["lon"]), p.now.cls or "", s["commune"],
-                            p.now.record])
+                            p.now.record, round(p.now.p, 4) if p.now.cls else None])
     (DOCS_DIR / "puntos.json").write_text(json.dumps(compact, ensure_ascii=False, separators=(",", ":")),
                                           encoding="utf-8")
     geo = json.loads((DATA_DIR / "departements.geojson").read_text(encoding="utf-8"))
@@ -195,6 +199,10 @@ def method_html(rep: Report) -> str:
     {MIN_REFERENCE_YEARS}. La posición da la probabilidad empírica de un nivel más bajo, rango / (n + 1), y esa
     probabilidad la clase, con los umbrales del boletín del BRGM. Un nivel por debajo de todos los demás años es
     «mínimo de la serie».</li>
+    <li><b>Mapa interpolado.</b> Cada punto del mapa toma la media de la probabilidad de los piezómetros
+    clasificados a menos de {SURFACE_MAX_KM} km, con más peso cuanto más cerca (inverso del cuadrado de la
+    distancia), y se pinta con la clase de esa media. El color es pleno hasta {SURFACE_FULL_KM} km del piezómetro
+    más cercano y se desvanece hasta {SURFACE_MAX_KM} km; más allá no se pinta nada.</li>
     <li><b>Departamentos.</b> En cada departamento se cuentan los piezómetros clasificados y cuántos están en
     «bajo» o «muy bajo». Se compara con el nivel de restricción por sequía en vigor para las aguas
     subterráneas según VigiEau (el más alto de las zonas del departamento), leído cada día.</li>
@@ -236,6 +244,9 @@ def method_html(rep: Report) -> str:
     acuíferos; un departamento puede tener una zona en crisis y el resto sin restricción.</li>
     <li>La restricción es la de hoy y el nivel es el del último mes completo: el decreto suele basarse en las
     medidas del mes anterior, pero puede ir por delante o por detrás.</li>
+    <li>El mapa interpolado mezcla piezómetros de acuíferos distintos, superpuestos a veces, y dibuja
+    transiciones suaves donde puede haber un límite brusco entre dos acuíferos. Sirve para ver la tendencia
+    regional; para un sitio concreto, mejor los piezómetros.</li>
     <li>Los acuíferos lentos (la creta de la cuenca de París) y los rápidos (los kársticos) no responden igual a
     la lluvia; la clase dice cómo está cada uno respecto a sí mismo, no cuál está peor.</li>
     <li>Una serie con una tendencia larga (un acuífero que baja año tras año por las extracciones) queda
@@ -267,7 +278,8 @@ def render(today: date | None = None) -> Path:
     yoy_txt = f"<small>hace un año, {_pct(yoy[1])}</small>" if yoy else ""
     lowest, n_very_low = _lowest_rows(rep)
     restrictions = {d.code: vigieau.rank(d.restriction) if d.restriction is not None else -1 for d in rep.departments}
-    classes_js = json.dumps({k: {"label": LABELS[k], "color": c} for k, c in CLASS_COLORS.items()}, ensure_ascii=False)
+    classes_js = json.dumps({k: {"label": LABELS[k], "color": CLASS_COLORS[k], "upper": upper}
+                             for upper, k, _ in CLASSES}, ensure_ascii=False)
     legend_cls = "".join(f'<span><i class="sw" style="background:{CLASS_COLORS[k]}"></i>{escape(label)}</span>'
                          for _, k, label in CLASSES)
     legend_restr = "".join(f'<span><i class="sq dep r{i}" style="fill:none;background:var(--r{i})"></i>{escape(label)}</span>'
@@ -306,12 +318,16 @@ def render(today: date | None = None) -> Path:
 </header>
 <main>
   <h2>Mapa</h2>
+  <div class="view" role="radiogroup" aria-label="Vista del mapa">Ver:
+    <label><input type="radio" name="view" value="surf" checked> Nivel interpolado</label>
+    <label><input type="radio" name="view" value="pts"> Piezómetros y restricciones</label>
+  </div>
   <div class="legend" aria-label="Clase del nivel">{legend_cls}</div>
-  <div id="map" role="img" aria-label="Mapa de piezómetros por clase de nivel y departamentos por restricción en aguas subterráneas"></div>
-  <div class="legend" aria-label="Restricción VigiEau en aguas subterráneas">
+  <div id="map" class="surf" role="img" aria-label="Mapa del nivel de las aguas subterráneas por clase, interpolado entre piezómetros, y departamentos por restricción en aguas subterráneas"></div>
+  <div class="legend" id="restr-legend" aria-label="Restricción VigiEau en aguas subterráneas" hidden>
     <label><input type="checkbox" id="restr" checked> Restricción en aguas subterráneas{f" ({vig_day.day} de {MONTHS[vig_day.month - 1]})" if vig_day else ""}:</label>{legend_restr}
   </div>
-  <p class="note">Pulsa un punto para ver su curva. Los puntos huecos no tienen clase este mes (ver «Cómo se calcula»).</p>
+  <p class="note" id="map-note"></p>
   <section id="ficha" class="card" hidden aria-live="polite"></section>
 
   <h2>Departamentos</h2>
@@ -362,28 +378,113 @@ const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({{'&': '&amp;', '<': '
 const map = L.map('map', {{zoomSnap: .25, attributionControl: false}}).setView([46.6, 2.4], 5.5);
 // Departments in their own pane under the points: the GeoJSON arrives after the points' canvas
 // and would otherwise be drawn on top of it.
+map.createPane('surf').style.zIndex = 300;
 map.createPane('deps').style.zIndex = 350;
-fetch('departements.geojson').then(r => r.json()).then(geo => {{
+const geoReady = fetch('departements.geojson').then(r => r.json()).then(geo => {{
   const layer = L.geoJSON(geo, {{pane: 'deps', style: f => {{
     const r = RESTR[f.properties.code];
     return {{className: 'dep ' + (r == null || r < 0 ? 'rx' : 'r' + r), interactive: false}};
   }}}}).addTo(map);
   // A map drawn while its pane is hidden has no size, and fitting to it gives NaN.
   if (map.getSize().x > 0) map.fitBounds(layer.getBounds(), {{padding: [6, 6]}});
+  return geo;
 }});
 const canvas = L.canvas({{padding: .5}});
 const paper = getComputedStyle(document.body).getPropertyValue('--paper').trim() || '#fff';
 const muted = getComputedStyle(document.body).getPropertyValue('--muted').trim() || '#888';
-fetch('puntos.json').then(r => r.json()).then(points => {{
+const dots = L.layerGroup();
+const classOf = p => Object.keys(CLS).find(k => p < .5 ? p <= CLS[k].upper : p < CLS[k].upper) || 'very_high';
+const pointsReady = fetch('puntos.json').then(r => r.json()).then(points => {{
   points.sort((a, b) => (a[3] ? 1 : 0) - (b[3] ? 1 : 0));
   for (const [id, lat, lon, cls, commune, record] of points) {{
     const c = CLS[cls];
     L.circleMarker([lat, lon], {{renderer: canvas, radius: c ? 4 : 2.6, weight: c ? 1 : 1.2,
       color: c ? paper : muted, fillColor: c ? c.color : paper, fillOpacity: 1}})
       .bindTooltip(esc(commune) + ' · ' + (c ? c.label + (record === 'low' ? ' (mínimo de la serie)' : '') : 'sin clase'))
-      .on('click', () => openPoint(id)).addTo(map);
+      .on('click', () => openPoint(id)).addTo(dots);
   }}
+  return points;
 }});
+
+// Interpolated surface, drawn once into an image over metropolitan France. Each pixel takes the
+// inverse-distance weighted probability of the classified piezometers within {SURFACE_MAX_KM} km,
+// coloured by its class and faded with the distance to the nearest one, then clipped to the
+// department outlines. Rows are spaced in Web Mercator so the image lines up with the map.
+const SURF = {{full: {SURFACE_FULL_KM}, max: {SURFACE_MAX_KM}, west: -5.3, east: 9.7, south: 41.2, north: 51.2, width: 900}};
+const SMOOTH = 25;  // km², softens the bull's-eye IDW draws around each well
+const merc = lat => Math.log(Math.tan(Math.PI / 4 + lat * Math.PI / 360));
+function surface(points, geo) {{
+  const {{full, max, west, east, south, north, width}} = SURF;
+  const top = merc(north), bottom = merc(south);
+  const height = Math.round(width * (top - bottom) / ((east - west) * Math.PI / 180));
+  const cell = .5, grid = new Map();
+  for (const [, lat, lon, , , , p] of points) {{
+    if (p == null) continue;
+    const k = Math.floor(lat / cell) + ',' + Math.floor(lon / cell);
+    if (!grid.has(k)) grid.set(k, []);
+    grid.get(k).push([lat, lon, p]);
+  }}
+  const rgb = Object.fromEntries(Object.entries(CLS).map(([k, c]) =>
+    [k, [1, 3, 5].map(i => parseInt(c.color.slice(i, i + 2), 16))]));
+  const off = document.createElement('canvas');
+  off.width = width; off.height = height;
+  const ctx = off.getContext('2d'), img = ctx.createImageData(width, height);
+  for (let y = 0; y < height; y++) {{
+    const lat = (2 * Math.atan(Math.exp(top - (y + .5) / height * (top - bottom))) - Math.PI / 2) * 180 / Math.PI;
+    const kx = 111.32 * Math.cos(lat * Math.PI / 180), ky = 110.57, gy = Math.floor(lat / cell);
+    for (let x = 0; x < width; x++) {{
+      const lon = west + (x + .5) / width * (east - west), gx = Math.floor(lon / cell);
+      let sw = 0, sp = 0, near = Infinity;
+      for (let a = gy - 1; a <= gy + 1; a++) for (let b = gx - 1; b <= gx + 1; b++) {{
+        for (const [plat, plon, p] of grid.get(a + ',' + b) || []) {{
+          const d = Math.hypot((lon - plon) * kx, (lat - plat) * ky);
+          if (d > max) continue;
+          const w = 1 / (d * d + SMOOTH);
+          sw += w; sp += w * p; near = Math.min(near, d);
+        }}
+      }}
+      if (!sw) continue;
+      const c = rgb[classOf(sp / sw)], o = (y * width + x) * 4;
+      img.data[o] = c[0]; img.data[o + 1] = c[1]; img.data[o + 2] = c[2];
+      img.data[o + 3] = 230 * (near <= full ? 1 : (max - near) / (max - full));
+    }}
+  }}
+  ctx.putImageData(img, 0, 0);
+  const out = document.createElement('canvas');
+  out.width = width; out.height = height;
+  const o = out.getContext('2d');
+  const ring = r => r.forEach(([lon, lat], i) => {{
+    const px = (lon - west) / (east - west) * width, py = (top - merc(lat)) / (top - bottom) * height;
+    i ? o.lineTo(px, py) : o.moveTo(px, py);
+  }});
+  o.beginPath();
+  for (const f of geo.features) {{
+    const g = f.geometry;
+    (g.type === 'Polygon' ? [g.coordinates] : g.coordinates).forEach(poly => poly.forEach(ring));
+  }}
+  o.clip('evenodd');
+  o.drawImage(off, 0, 0);
+  return L.imageOverlay(out.toDataURL(), [[south, west], [north, east]], {{pane: 'surf', interactive: false}});
+}}
+const NOTES = {{
+  surf: 'Color de los piezómetros clasificados a menos de {SURFACE_MAX_KM} km, más pálido cuanto más lejos; sin color, ' +
+        'sin piezómetro cerca. Acerca el mapa para ver los puntos y pulsa uno para ver su curva.',
+  pts: 'Pulsa un punto para ver su curva. Los puntos huecos no tienen clase este mes (ver «Cómo se calcula»).'}};
+let surf = null;
+const view = () => document.querySelector('input[name=view]:checked').value;
+const showDots = () => view() === 'pts' || map.getZoom() >= 8 ? dots.addTo(map) : dots.remove();
+function setView() {{
+  const v = view();
+  document.getElementById('map').classList.toggle('surf', v === 'surf');
+  document.getElementById('restr-legend').hidden = v !== 'pts';
+  document.getElementById('map-note').textContent = NOTES[v];
+  if (surf) v === 'surf' ? surf.addTo(map) : surf.remove();
+  showDots();
+}}
+document.querySelectorAll('input[name=view]').forEach(i => i.addEventListener('change', setView));
+map.on('zoomend', showDots);
+setView();
+Promise.all([pointsReady, geoReady]).then(([points, geo]) => {{ surf = surface(points, geo); setView(); }});
 document.getElementById('restr').addEventListener('change', e =>
   document.getElementById('map').classList.toggle('hide-restr', !e.target.checked));
 

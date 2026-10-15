@@ -51,6 +51,7 @@ h2{{font:700 26px/1.1 var(--font-title);text-transform:uppercase;letter-spacing:
 .dep.r0{{fill:var(--r0)}}.dep.r1{{fill:var(--r1)}}.dep.r2{{fill:var(--r2)}}.dep.r3{{fill:var(--r3)}}.dep.r4{{fill:var(--r4)}}
 .dep.rx{{fill:transparent}}
 .hide-restr .dep{{fill:transparent!important}}
+.leaflet-deps-pane svg{{max-width:none!important;max-height:none!important}}
 .legend{{display:flex;flex-wrap:wrap;gap:6px 18px;margin:10px 0;font-size:14px;align-items:center}}
 .legend span{{display:inline-flex;align-items:center;gap:6px}}
 .sw{{width:12px;height:12px;border-radius:50%;display:inline-block;border:1px solid var(--line)}}
@@ -359,14 +360,16 @@ const fmt = (x, d = 2) => x == null ? '—' : x.toLocaleString('es-ES', {{minimu
 const monthName = m => MONTHS[+m.slice(5, 7) - 1] + ' de ' + m.slice(0, 4);
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({{'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}})[c]);
 const map = L.map('map', {{zoomSnap: .25, attributionControl: false}}).setView([46.6, 2.4], 5.5);
+// Departments in their own pane under the points: the GeoJSON arrives after the points' canvas
+// and would otherwise be drawn on top of it.
+map.createPane('deps').style.zIndex = 350;
 fetch('departements.geojson').then(r => r.json()).then(geo => {{
-  const layer = L.geoJSON(geo, {{style: f => {{
+  const layer = L.geoJSON(geo, {{pane: 'deps', style: f => {{
     const r = RESTR[f.properties.code];
     return {{className: 'dep ' + (r == null || r < 0 ? 'rx' : 'r' + r), interactive: false}};
   }}}}).addTo(map);
   // A map drawn while its pane is hidden has no size, and fitting to it gives NaN.
   if (map.getSize().x > 0) map.fitBounds(layer.getBounds(), {{padding: [6, 6]}});
-  layer.bringToBack();
 }});
 const canvas = L.canvas({{padding: .5}});
 const paper = getComputedStyle(document.body).getPropertyValue('--paper').trim() || '#fff';
@@ -375,7 +378,7 @@ fetch('puntos.json').then(r => r.json()).then(points => {{
   points.sort((a, b) => (a[3] ? 1 : 0) - (b[3] ? 1 : 0));
   for (const [id, lat, lon, cls, commune, record] of points) {{
     const c = CLS[cls];
-    L.circleMarker([lat, lon], {{renderer: canvas, radius: c ? 5 : 3.2, weight: c ? 1 : 1.2,
+    L.circleMarker([lat, lon], {{renderer: canvas, radius: c ? 4 : 2.6, weight: c ? 1 : 1.2,
       color: c ? paper : muted, fillColor: c ? c.color : paper, fillOpacity: 1}})
       .bindTooltip(esc(commune) + ' · ' + (c ? c.label + (record === 'low' ? ' (mínimo de la serie)' : '') : 'sin clase'))
       .on('click', () => openPoint(id)).addTo(map);

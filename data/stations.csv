@@ -161,7 +161,7 @@ BSS000FGVK,00753X0014/F,76751,Yébleron,76,Seine-Maritime,0.53675,49.63277,137.4
 BSS000FHCQ,00755X0006/S1,76714,Les Trois-Pierres,76,Seine-Maritime,0.41981,49.55553,112.0,1969-10-24,2026-10-08,HG219,Craie altérée de la pointe de Caux,Puits le Manoir Mont Aca (Les Trois-Pierres) - 76
 BSS000FHYM,00762X0004/S1,76456,Motteville,76,Seine-Maritime,0.86099,49.64974,155.0,1968-01-29,2026-10-09,HG220,Craie altérée de l'estuaire de la Seine hors pointe de Caux,Puits du Bois Guilbert (Motteville) - 76
 BSS000FJMG,00765X0124/BT2,76401,Arelaune-en-Seine,76,Seine-Maritime,0.7225,49.51776,4.0,2005-12-06,2026-10-08,HG001,Alluvions de la Seine moyenne et aval,FORAGE LES CAPUCINS (SAINT-NICOLAS-DE-BLIQUETUIT) - 76
-BSS000FJMV,00766X0004/S1,76099,Blacqueville,76,Seine-Maritime,0.84229,49.57091,124.0,1967-11-22,2026-10-08,HG220,Craie altérée de l'estuaire de la Seine hors pointe de Caux,Puits Ferme du Mouchel (Blacqueville) - 76
+BSS000FJMV,00766X0004/S1,76099,Blacqueville,76,Seine-Maritime,0.84229,49.57091,124.0,1967-11-22,2026-10-15,HG220,Craie altérée de l'estuaire de la Seine hors pointe de Caux,Puits Ferme du Mouchel (Blacqueville) - 76
 BSS000FKAY,00771X0030/P,76179,Clères,76,Seine-Maritime,1.11641,49.60091,96.0,2001-11-09,2026-10-09,HG220,Craie altérée de l'estuaire de la Seine hors pointe de Caux,Puits Route de Cailly (Clères) - 76
 BSS000FKSD,00773X0002/S1,76532,Rocquemont,76,Seine-Maritime,1.27958,49.60431,175.0,1968-01-26,2026-10-08,HG204,"Craie des bassins versants de l'Eaulne, Béthune, Varenne, Bresle et Yerres",Puits de Rocquemont (Rocquemont) - 76
 BSS000FLDL,00775X0099/F14,76271,Fontaine-le-Bourg,76,Seine-Maritime,1.16309,49.56256,74.0,1985-06-14,2026-10-09,HG220,Craie altérée de l'estuaire de la Seine hors pointe de Caux,Forage Le Grand Tendos (Fontaine-le-Bourg) - 76
@@ -256,9 +256,9 @@ BSS000JBYK,01205X0541/P7,14341,Ifs,14,Calvados,-0.34788,49.14659,22.88,2016-02-1
 BSS000JCFJ,01206X0013/P,14328,Hérouvillette,14,Calvados,-0.27286,49.20998,39.0,2018-05-04,2026-10-09,HG308,Bathonien-Bajocien de la plaine de Caen et du Bessin,
 BSS000JDBP,01211X0037/S1,14218,Danestal,14,Calvados,0.01617,49.2562,118.07,1974-02-05,2026-10-09,HG213,Craie et Marnes du Lieuvin-Ouche - Pays d'Auge - bassin versant de la Touques,PUITS DU CALVAIRE (DANESTAL) - 14
 BSS000JGKA,01227X0022/P,27079,Boissy-Lamberville,27,Eure,0.57749,49.16313,169.0,2001-04-05,2026-10-09,HG212,Craie du Lieuvin-Ouche - bassin versant de la Risle,Puits de Boissy Lamberville (Boissy-Lamberville) - 27
-BSS000JGQF,01232X0006/P,27320,La Haye-du-Theil,27,Eure,0.87607,49.23438,160.0,2006-03-02,2026-10-08,HG212,Craie du Lieuvin-Ouche - bassin versant de la Risle,Puits de la Haye du Theil (la Haye-du-Theil) - 27
+BSS000JGQF,01232X0006/P,27320,La Haye-du-Theil,27,Eure,0.87607,49.23438,160.0,2006-03-02,2026-10-14,HG212,Craie du Lieuvin-Ouche - bassin versant de la Risle,Puits de la Haye du Theil (la Haye-du-Theil) - 27
 BSS000JHKN,01234X0297/F2,76165,Caudebec-lès-Elbeuf,76,Seine-Maritime,1.02123,49.28081,8.0,2007-06-19,2026-10-09,HG218,Albien-Néocomien captif,Forage Recyclerie (Caudebec-les-Elbeuf) - 76
-BSS000JMAM,01242X0530/FN3,27701,Val-de-Reuil,27,Eure,1.21202,49.30542,8.0,2008-01-10,2026-10-08,HG201,Craie du Vexin normand et picard,FORAGE DE LA BASE DE LOISIRS (VAL-DE-REUIL)
+BSS000JMAM,01242X0530/FN3,27701,Val-de-Reuil,27,Eure,1.21202,49.30542,8.0,2008-01-10,2026-10-15,HG201,Craie du Vexin normand et picard,FORAGE DE LA BASE DE LOISIRS (VAL-DE-REUIL)
 BSS000JNAH,01245X0010/S1,27412,Terres de Bord,27,Eure,1.08927,49.22405,136.0,1967-10-12,2026-10-08,HG220,Craie altérée de l'estuaire de la Seine hors pointe de Caux,PUITS ECROSVILLE (MONTAURE) - 27
 BSS000JPXK,01251X0044/S1,27175,Corny,27,Eure,1.45588,49.28308,140.0,1971-02-04,2026-10-09,HG201,Craie du Vexin normand et picard,Puits de Corny (Corny) - 27
 BSS000JPZR,01252X0011/S1,27232,Farceaux,27,Eure,1.53615,49.29996,120.5,1971-02-04,2026-10-09,HG201,Craie du Vexin normand et picard,Puits de Farceaux (Farceaux) - 27
@@ -306,7 +306,7 @@ BSS000KZDN,01465X0067/P,14703,Tournebu,14,Calvados,-0.33997,48.97017,161.0,2008-
 BSS000LAEA,01473X0087/S1,14371,Livarot-Pays-d'Auge,14,Calvados,0.23922,49.05765,158.0,1974-01-31,2026-10-08,HG213,Craie et Marnes du Lieuvin-Ouche - Pays d'Auge - bassin versant de la Touques,Forage d'Auquainville (Auquainville) - 14
 BSS000LAJN,01474X0074/F,14303,Glos,14,Calvados,0.27747,49.12029,55.0,2011-12-07,2026-10-08,HG213,Craie et Marnes du Lieuvin-Ouche - Pays d'Auge - bassin versant de la Touques,FORAGE DU CHEMIN (GLOS) - 14
 BSS000LBFR,01487X0001/S1,27049,Mesnil-en-Ouche,27,Eure,0.58597,48.96316,199.0,1982-01-28,2026-10-09,HG212,Craie du Lieuvin-Ouche - bassin versant de la Risle,Puits Château d'eau (la Roussière) - 27
-BSS000LBHX,01491X0009/S1,27290,Goupil-Othon,27,Eure,0.76976,49.11441,150.0,1972-11-08,2026-10-09,HG212,Craie du Lieuvin-Ouche - bassin versant de la Risle,Puits Ferme de la Pommeraie (Goupillières) - 27
+BSS000LBHX,01491X0009/S1,27290,Goupil-Othon,27,Eure,0.76976,49.11441,150.0,1972-11-08,2026-10-15,HG212,Craie du Lieuvin-Ouche - bassin versant de la Risle,Puits Ferme de la Pommeraie (Goupillières) - 27
 BSS000LBME,01493X0001/P,27298,Graveron-Sémerville,27,Eure,0.9733,49.09454,138.0,1968-12-10,2026-10-09,HG211,Craie altérée du Neubourg-Iton-plaine de Saint-André,Puits Ferme du Château (Graveron-Semerville) - 27
 BSS000LBNH,01494X0004/S1,27504,Sacquenville,27,Eure,1.07375,49.08399,143.0,1968-02-22,2026-10-08,,,
 BSS000LBUV,01498X0005/SO,27287,Glisolles,27,Eure,1.02593,48.98182,85.0,2022-07-27,2026-10-09,,,
@@ -730,6 +730,7 @@ BSS001AYXN,03783X0046/71,68136,Hettenschlag,68,Haut-Rhin,7.45753,48.00507,197.4,
 BSS001AZKQ,03784X0010/64,68069,Dessenheim,68,Haut-Rhin,7.48733,47.97889,199.8,1955-04-06,2026-09-15,CG101,"Nappe d’Alsace, Pliocène de Haguenau et Oligocène",Puits de ROUTE DE COLMAR N°82
 BSS001AZXC,03785X0083/53B,68156,Issenheim,68,Haut-Rhin,7.26631,47.89741,236.7,1982-10-05,2026-09-16,CG101,"Nappe d’Alsace, Pliocène de Haguenau et Oligocène",Forage de NIEDERWALD
 BSS001BABN,03786X0024/52,68203,Merxheim,68,Haut-Rhin,7.29245,47.91093,211.36,1955-01-04,2026-09-15,CG101,"Nappe d’Alsace, Pliocène de Haguenau et Oligocène",FORAGE NØ2
+BSS001BADP,03786X0074/130,68228,Munwiller,68,Haut-Rhin,7.32539,47.93698,206.0,1974-09-28,2026-10-14,CG101,"Nappe d’Alsace, Pliocène de Haguenau et Oligocène",Forage de LD WIDEN (ROUFFACHERWEG)
 BSS001BBJT,03791X0042/V50,68351,Vogelgrun,68,Haut-Rhin,7.57619,48.01667,190.9,1964-02-27,2026-09-08,CG101,"Nappe d’Alsace, Pliocène de Haguenau et Oligocène",Forage de EDF (ROUTE FACE PK 49.800)
 BSS001BBJW,03791X0045/66A,68246,Obersaasheim,68,Haut-Rhin,7.561,47.99069,195.5,1977-06-07,2026-09-15,CG101,"Nappe d’Alsace, Pliocène de Haguenau et Oligocène",Forage de RUE DE NORMANDIE (FACE 10)
 BSS001BBSL,03795X0037/55,68230,Nambsheim,68,Haut-Rhin,7.56315,47.93406,202.82,1949-03-09,2026-09-08,CG101,"Nappe d’Alsace, Pliocène de Haguenau et Oligocène",Puits de VILLAGE
@@ -2470,7 +2471,7 @@ BSS002PMAT,12307X0011/KAWE1,97611,Mamoudzou,976,Mayotte,45.22084,-12.76911,12.83
 BSS002PMBF,12307X0023/KOUAL2,97611,Mamoudzou,976,Mayotte,45.17881,-12.80179,70.67,2000-09-27,2026-10-09,MG002,Volcanisme du massif du Mtsapere,PIÉZOMÈTRE DE KWALÉ 2 - MAMOUDZOU (976)
 BSS002PNML,12308X0086/PZ4,97608,Dzaoudzi,976,Mayotte,45.27976,-12.78593,21.01,2009-10-23,2026-10-08,MG003,Volcanisme de Petite Terre,PIÉZOMÈTRE DE LABATTOIR 4 - DZAOUDZI-LABATTOIR (976)
 BSS002PNXS,12312X0030/KAHA1,97614,Ouangani,976,Mayotte,45.12973,-12.82302,116.69,1992-11-13,2026-10-09,MG004,Volcanisme du massif du Digo,PIÉZOMÈTRE DE KAHANI 1 - OUANGANI (976)
-BSS002PNXW,12312X0034/MRERE1,97606,Chirongui,976,Mayotte,45.15869,-12.9067,18.51,1992-11-10,2026-10-11,MG005,Volcanisme du complexe Sud,PIÉZOMÈTRE DE MRERENI 1 CAMPAGNE 1999-2000 - CHIRONGUI (976)
+BSS002PNXW,12312X0034/MRERE1,97606,Chirongui,976,Mayotte,45.15869,-12.9067,18.51,1992-11-10,2026-10-14,MG005,Volcanisme du complexe Sud,PIÉZOMÈTRE DE MRERENI 1 CAMPAGNE 1999-2000 - CHIRONGUI (976)
 BSS002PNYJ,12312X0050/PORO,97606,Chirongui,976,Mayotte,45.1468,-12.89009,35.28,2003-11-19,2026-10-09,MG005,Volcanisme du complexe Sud,FORAGE DE POROANI
 BSS002PPKL,12313X0020/HANJ1,97607,Dembeni,976,Mayotte,45.2004,-12.87051,12.58,1992-11-10,2026-10-08,MG005,Volcanisme du complexe Sud,PIÉZOMÈTRE DE HAJANGUA 1- DEMBENI  (976)
 BSS002PPKM,12313X0021/TSARA1,97607,Dembeni,976,Mayotte,45.17288,-12.84018,12.43,2000-09-27,2026-10-09,MG005,Volcanisme du complexe Sud,FORAGE DE TSARARANO 1 - DEMBENI (976)

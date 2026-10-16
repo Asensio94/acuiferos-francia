@@ -22,12 +22,15 @@ Niveles de Hub'Eau (BRGM); restricciones de VigiEau. Web: https://asensio94.gith
    demás años, con al menos 15 años. La probabilidad es la empírica, rango / (n + 1), sin ajustar ninguna
    curva, y se pasa a siete clases con los umbrales del boletín del BRGM (0,10, 0,20, 0,40, 0,60, 0,80 y
    0,90). Un nivel por debajo de todos los demás años es «mínimo de la serie».
-5. **Restricciones.** `acuiferos/vigieau.py` guarda cada día el nivel más alto en vigor en cada departamento
+5. **Mapa interpolado.** En el navegador, cada punto toma la media de la probabilidad de los piezómetros
+   clasificados a menos de 30 km, ponderada por el inverso del cuadrado de la distancia, y se pinta con su
+   clase. El color se desvanece de 10 a 30 km del piezómetro más cercano y se recorta al contorno de Francia.
+6. **Restricciones.** `acuiferos/vigieau.py` guarda cada día el nivel más alto en vigor en cada departamento
    para las aguas subterráneas, superficiales y de abastecimiento (`data/vigieau.csv`).
-6. **Indicios.** Con al menos tres piezómetros clasificados, un departamento se marca si la mitad o más
+7. **Indicios.** Con al menos tres piezómetros clasificados, un departamento se marca si la mitad o más
    están bajos o muy bajos y no tiene restricción más allá de la vigilancia, o si tiene alerta reforzada
    o crisis y la mediana de sus piezómetros está en torno a lo normal o más alta.
-7. **Web.** `acuiferos/web.py` escribe `docs/index.html` (mapa, tabla de departamentos, los más bajos y el
+8. **Web.** `acuiferos/web.py` escribe `docs/index.html` (mapa, tabla de departamentos, los más bajos y el
    método), `docs/puntos.json` para el mapa y una ficha JSON por piezómetro con sus 36 últimos meses y la
    banda histórica de cada mes.
 
@@ -55,6 +58,8 @@ Pendiente: contrastar clase a clase con el mapa del boletín.
 - La restricción es la de hoy y el nivel es el del último mes completo.
 - Una serie con una tendencia larga de descenso queda en «muy bajo» mes tras mes, porque se compara con
   todos sus años, también los anteriores al descenso.
+- El mapa interpolado mezcla acuíferos distintos y suaviza límites que pueden ser bruscos: da la tendencia
+  regional, no el estado de un sitio concreto.
 - Los departamentos de ultramar están en la tabla pero no en el mapa.
 
 ## Pendiente

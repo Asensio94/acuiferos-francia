@@ -28,6 +28,11 @@ LOW_P = 0.20                 # "bajo" or worse
 DISCORDANT_LOW_SHARE = 0.5   # half the department low with no groundwater restriction
 NORMAL_P = 0.40              # median above this: "en torno a lo normal" or higher
 
+# Interpolated map: inverse-distance weighting of the probability of nearby piezometers. Full colour
+# up to SURFACE_FULL_KM from the nearest one, fading out by SURFACE_MAX_KM, nothing beyond.
+SURFACE_FULL_KM = 10
+SURFACE_MAX_KM = 30
+
 # Readings left out: flagged wrong by the producer, or taken while the well was pumping or
 # influenced by nearby pumping (Sandre nature codes D and I).
 BAD_QUALIFICATION = {"Incorrecte"}

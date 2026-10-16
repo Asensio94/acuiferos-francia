@@ -104,6 +104,20 @@ def band(series: dict[str, tuple[float, int]], exclude_year: str = "") -> dict[i
     return out
 
 
+def metres(series: dict[str, tuple[float, int]], reading: Reading, altitude: str) -> tuple[float | None, float | None]:
+    """The reading in metres: against the median of the same month in the other years (negative is
+    below), and below the station's reference altitude (negative: above it, an artesian well or a
+    wrong altitude). The first needs a classified month; the second only a level and an altitude."""
+    anomaly = depth = None
+    if reading.status == "ok":
+        ref = band(series, exclude_year=reading.month[:4]).get(int(reading.month[5:7]))
+        if ref:
+            anomaly = round(reading.value - ref["p50"], 2)
+    if reading.value is not None and altitude:
+        depth = round(float(altitude) - reading.value, 1)
+    return anomaly, depth
+
+
 def _quantile(sorted_values: list[float], q: float) -> float:
     pos = q * (len(sorted_values) - 1)
     lo = int(pos)

@@ -12,7 +12,7 @@ from . import vigieau
 from .config import (COMPLETE_SHARE, DATA_DIR, DISCORDANT_LOW_SHARE, DOCS_DIR, MIN_DEPARTMENT_POINTS,
                      MIN_REFERENCE_YEARS, NORMAL_P, POINTS_DIR, REFRESH_MONTHS, SURFACE_FULL_KM,
                      SURFACE_MAX_KM)
-from .ips import CLASSES, LABELS, band, class_of, classify, months_before
+from .ips import CLASSES, LABELS, band, class_of, classify, metres, months_before
 from .logo import LOGO_SVG, favicon_link
 from .report import Department, Point, Report, build
 
@@ -112,13 +112,14 @@ def point_json(p: Point, month: str) -> dict:
     history = {m: v for m, v in p.series.items() if m < shown[0]}
     s = p.station
     r = p.now
+    anomaly, depth = metres(p.series, r, s["altitude"])
     return {
         "id": s["bss_id"], "code": s["code_bss"], "commune": s["commune"], "insee": s["commune_insee"],
         "department": s["department"], "department_name": s["department_name"],
         "water_body": s["water_body_name"], "aquifer": s["aquifer"], "altitude": s["altitude"],
         "first": s["first"], "ades": ADES + s["code_bss"],
         "now": {"month": r.month, "status": r.status, "value": r.value, "days": r.days, "years": r.years,
-                "p": r.p, "cls": r.cls, "record": r.record},
+                "p": r.p, "cls": r.cls, "record": r.record, "anomaly": anomaly, "depth": depth},
         "months": [[m, p.series[m][0], classify(p.series, m).cls] if m in p.series else [m, None, None]
                    for m in shown],
         "band": band(history), "band_until": int(shown[0][:4]) - 1,
@@ -136,7 +137,8 @@ def write_points(rep: Report) -> None:
             json.dumps(point_json(p, rep.month), ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
         if s["lat"] and s["lon"]:
             compact.append([s["bss_id"], float(s["lat"]), float(s["lon"]), p.now.cls or "", s["commune"],
-                            p.now.record, round(p.now.p, 4) if p.now.cls else None])
+                            p.now.record, round(p.now.p, 4) if p.now.cls else None,
+                            *metres(p.series, p.now, s["altitude"])])
     (DOCS_DIR / "puntos.json").write_text(json.dumps(compact, ensure_ascii=False, separators=(",", ":")),
                                           encoding="utf-8")
     geo = json.loads((DATA_DIR / "departements.geojson").read_text(encoding="utf-8"))
@@ -247,6 +249,16 @@ def method_html(rep: Report) -> str:
     <li>El mapa interpolado mezcla piezómetros de acuíferos distintos, superpuestos a veces, y dibuja
     transiciones suaves donde puede haber un límite brusco entre dos acuíferos. Sirve para ver la tendencia
     regional; para un sitio concreto, mejor los piezómetros.</li>
+    <li>Los metros de la ficha son para entender cada pozo, no para comparar unos con otros. «Por debajo de lo
+    habitual» es la distancia a la mediana del mismo mes en los demás años, y un metro no pesa igual en un
+    acuífero kárstico, que oscila decenas de metros en un año corriente, que en uno aluvial, que oscila uno. Por
+    eso las clases y el mapa usan la probabilidad.</li>
+    <li>El nivel bajo el punto de medida es la altitud de Hub'Eau menos el nivel. Ese punto suele ser el brocal o
+    la tapa del pozo, a veces algo por encima del suelo, y la altitud tiene la precisión con que se anotó. En un
+    acuífero cautivo el nivel es una presión: dice hasta dónde subiría el agua en el pozo, no a qué profundidad
+    está el acuífero, y puede quedar por encima del suelo (pozo surgente).</li>
+    <li>No hay mapa en metros. La cota del agua interpolada entre acuíferos distintos dibujaría sobre todo el
+    relieve, y la profundidad cambia demasiado en poca distancia, del valle a la meseta, para interpolarla.</li>
     <li>Los acuíferos lentos (la creta de la cuenca de París) y los rápidos (los kársticos) no responden igual a
     la lluvia; la clase dice cómo está cada uno respecto a sí mismo, no cuál está peor.</li>
     <li>Una serie con una tendencia larga (un acuífero que baja año tras año por las extracciones) queda
@@ -373,6 +385,11 @@ const CLS = {classes_js};
 const RESTR = {json.dumps(restrictions)};
 const MONTHS = {json.dumps(MONTHS)};
 const fmt = (x, d = 2) => x == null ? '—' : x.toLocaleString('es-ES', {{minimumFractionDigits: d, maximumFractionDigits: d}});
+// Metres for people: against the usual level of the month, and below the measuring point.
+const vsNormal = a => a == null ? '' : Math.abs(a) < .005 ? 'en su nivel habitual'
+  : fmt(Math.abs(a)) + ' m ' + (a < 0 ? 'por debajo' : 'por encima') + ' de lo habitual';
+const below = d => d == null ? '' : d < 0 ? 'nivel ' + fmt(-d, 1) + ' m por encima del punto de medida'
+  : 'nivel a ' + fmt(d, 1) + ' m bajo el punto de medida';
 const monthName = m => MONTHS[+m.slice(5, 7) - 1] + ' de ' + m.slice(0, 4);
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({{'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}})[c]);
 const map = L.map('map', {{zoomSnap: .25, attributionControl: false}}).setView([46.6, 2.4], 5.5);
@@ -396,11 +413,12 @@ const dots = L.layerGroup();
 const classOf = p => Object.keys(CLS).find(k => p < .5 ? p <= CLS[k].upper : p < CLS[k].upper) || 'very_high';
 const pointsReady = fetch('puntos.json').then(r => r.json()).then(points => {{
   points.sort((a, b) => (a[3] ? 1 : 0) - (b[3] ? 1 : 0));
-  for (const [id, lat, lon, cls, commune, record] of points) {{
+  for (const [id, lat, lon, cls, commune, record, , anomaly, depth] of points) {{
     const c = CLS[cls];
     L.circleMarker([lat, lon], {{renderer: canvas, radius: c ? 4 : 2.6, weight: c ? 1 : 1.2,
       color: c ? paper : muted, fillColor: c ? c.color : paper, fillOpacity: 1}})
-      .bindTooltip(esc(commune) + ' · ' + (c ? c.label + (record === 'low' ? ' (mínimo de la serie)' : '') : 'sin clase'))
+      .bindTooltip(esc(commune) + ' · ' + (c ? c.label + (record === 'low' ? ' (mínimo de la serie)' : '') : 'sin clase')
+        + [vsNormal(anomaly), below(depth)].filter(Boolean).map(t => '<br>' + t).join(''))
       .on('click', () => openPoint(id)).addTo(dots);
   }}
   return points;
@@ -488,6 +506,16 @@ Promise.all([pointsReady, geoReady]).then(([points, geo]) => {{ surf = surface(p
 document.getElementById('restr').addEventListener('change', e =>
   document.getElementById('map').classList.toggle('hide-restr', !e.target.checked));
 
+function metresLine(d) {{
+  const n = d.now, m = MONTHS[+n.month.slice(5, 7) - 1];
+  if (n.value == null) return '';
+  const parts = ['Nivel medio: ' + fmt(n.value) + ' m sobre el nivel del mar'];
+  if (n.anomaly != null) parts.push(vsNormal(n.anomaly) + ' para un mes de ' + m + ' (la mediana de los demás años)');
+  if (n.depth != null) parts.push(below(n.depth) + (n.depth < 0
+    ? ' (pozo surgente de un acuífero cautivo, o altitud mal anotada)' : ''));
+  return '<p>' + parts.join('; ') + '.</p>';
+}}
+
 async function openPoint(id) {{
   const box = document.getElementById('ficha');
   const d = await fetch('p/' + id + '.json').then(r => r.ok ? r.json() : null);
@@ -500,6 +528,7 @@ async function openPoint(id) {{
        short_record: `Solo ${{n.years}} años de referencia (hacen falta {MIN_REFERENCE_YEARS})`}}[n.status];
   box.innerHTML = `<h3>${{esc(d.commune || d.code)}} <span class="note">(${{esc(d.department_name)}})</span></h3>
     <p>${{monthName(n.month)}}: ${{state}}.</p>
+    ${{metresLine(d)}}
     ${{chart(d)}}
     <p class="note">Línea: media mensual. Banda: del percentil 10 al 90 de cada mes hasta ${{d.band_until}};
     discontinua, la mediana; punteadas, el mínimo y el máximo. Pasa el ratón por un mes para ver su valor.</p>

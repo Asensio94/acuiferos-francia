@@ -1,5 +1,5 @@
 from acuiferos import hubeau, store
-from acuiferos.ips import band, class_of, classify, months_before, probability, usual_days
+from acuiferos.ips import band, class_of, classify, metres, months_before, probability, usual_days
 from acuiferos.report import Department, Point
 from acuiferos.ips import Reading
 
@@ -94,3 +94,14 @@ def test_department_flags():
     assert Department("01", "Ain", "crise", normal).flag == "restricted_normal"
     assert Department("01", "Ain", "crise", normal[:2]).flag == ""      # too few points
     assert Department("01", "Ain", None, low).flag == ""                # VigiEau unknown
+
+
+def test_metres_against_the_usual_level_and_below_the_station():
+    s = series({y: 100.0 + (y - 2000) * 0.1 for y in range(2000, 2026)} | {2026: 99.0})
+    r = classify(s, "2026-09")
+    anomaly, depth = metres(s, r, "112.5")
+    assert anomaly == round(99.0 - 101.25, 2)    # median of 100.0 ... 102.5
+    assert depth == 13.5
+    assert metres(s, r, "95")[1] == -4.0         # artesian, or a wrong altitude
+    short = classify(series({2025: 100.0, 2026: 99.0}), "2026-09")
+    assert metres(series({2025: 100.0, 2026: 99.0}), short, "")  == (None, None)

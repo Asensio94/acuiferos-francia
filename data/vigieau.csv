@@ -183,7 +183,7 @@ date,department,department_name,groundwater,surface,drinking,max
 2026-10-16,80,Somme,alerte_renforcee,alerte_renforcee,alerte_renforcee,alerte_renforcee
 2026-10-16,81,Tarn,crise,crise,alerte_renforcee,crise
 2026-10-16,82,Tarn-et-Garonne,crise,crise,alerte,crise
-2026-10-16,83,Var,alerte_renforcee,alerte_renforcee,alerte_renforcee,alerte_renforcee
+2026-10-16,83,Var,,,,
 2026-10-16,84,Vaucluse,alerte_renforcee,alerte_renforcee,alerte_renforcee,alerte_renforcee
 2026-10-16,85,Vendée,crise,crise,alerte_renforcee,crise
 2026-10-16,86,Vienne,crise,crise,crise,crise

@@ -32,7 +32,7 @@ Niveles de Hub'Eau (BRGM); restricciones de VigiEau. Web: https://asensio94.gith
    o crisis y la mediana de sus piezómetros está en torno a lo normal o más alta.
 8. **Web.** `acuiferos/web.py` escribe `docs/index.html` (mapa, tabla de departamentos, los más bajos y el
    método), `docs/puntos.json` para el mapa y una ficha JSON por piezómetro con sus 36 últimos meses y la
-   banda histórica de cada mes.
+   banda histórica de cada mes, y el nivel en metros respecto a lo habitual y bajo el punto de medida.
 
 ## Contraste / validación
 
@@ -60,6 +60,13 @@ Pendiente: contrastar clase a clase con el mapa del boletín.
   todos sus años, también los anteriores al descenso.
 - El mapa interpolado mezcla acuíferos distintos y suaviza límites que pueden ser bruscos: da la tendencia
   regional, no el estado de un sitio concreto.
+- Los metros de la ficha (distancia a la mediana del mes y nivel bajo el punto de medida) sirven para entender
+  cada pozo, no para compararlos: un metro no pesa igual en un kárstico que en un aluvial. Por eso clases y
+  mapa usan la probabilidad.
+- El nivel bajo el punto de medida es altitud menos nivel: el punto suele ser el brocal, algo por encima del
+  suelo, y en un acuífero cautivo el nivel es una presión que puede quedar por encima del suelo (surgente).
+- No hay mapa en metros: la cota interpolada entre acuíferos dibujaría el relieve, y la profundidad cambia
+  demasiado del valle a la meseta para interpolarla.
 - Los departamentos de ultramar están en la tabla pero no en el mapa.
 
 ## Pendiente

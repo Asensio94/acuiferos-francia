@@ -258,7 +258,7 @@ BSS000JDBP,01211X0037/S1,14218,Danestal,14,Calvados,0.01617,49.2562,118.07,1974-
 BSS000JGKA,01227X0022/P,27079,Boissy-Lamberville,27,Eure,0.57749,49.16313,169.0,2001-04-05,2026-10-09,HG212,Craie du Lieuvin-Ouche - bassin versant de la Risle,Puits de Boissy Lamberville (Boissy-Lamberville) - 27
 BSS000JGQF,01232X0006/P,27320,La Haye-du-Theil,27,Eure,0.87607,49.23438,160.0,2006-03-02,2026-10-14,HG212,Craie du Lieuvin-Ouche - bassin versant de la Risle,Puits de la Haye du Theil (la Haye-du-Theil) - 27
 BSS000JHKN,01234X0297/F2,76165,Caudebec-lès-Elbeuf,76,Seine-Maritime,1.02123,49.28081,8.0,2007-06-19,2026-10-09,HG218,Albien-Néocomien captif,Forage Recyclerie (Caudebec-les-Elbeuf) - 76
-BSS000JMAM,01242X0530/FN3,27701,Val-de-Reuil,27,Eure,1.21202,49.30542,8.0,2008-01-10,2026-10-15,HG201,Craie du Vexin normand et picard,FORAGE DE LA BASE DE LOISIRS (VAL-DE-REUIL)
+BSS000JMAM,01242X0530/FN3,27701,Val-de-Reuil,27,Eure,1.21202,49.30542,8.0,2008-01-10,2026-10-16,HG201,Craie du Vexin normand et picard,FORAGE DE LA BASE DE LOISIRS (VAL-DE-REUIL)
 BSS000JNAH,01245X0010/S1,27412,Terres de Bord,27,Eure,1.08927,49.22405,136.0,1967-10-12,2026-10-08,HG220,Craie altérée de l'estuaire de la Seine hors pointe de Caux,PUITS ECROSVILLE (MONTAURE) - 27
 BSS000JPXK,01251X0044/S1,27175,Corny,27,Eure,1.45588,49.28308,140.0,1971-02-04,2026-10-09,HG201,Craie du Vexin normand et picard,Puits de Corny (Corny) - 27
 BSS000JPZR,01252X0011/S1,27232,Farceaux,27,Eure,1.53615,49.29996,120.5,1971-02-04,2026-10-09,HG201,Craie du Vexin normand et picard,Puits de Farceaux (Farceaux) - 27
@@ -1293,6 +1293,8 @@ BSS001SHGS,06813X0035/F,17093,Le Château-d'Oléron,17,Charente-Maritime,-1.2046
 BSS001SHNE,06822X0013/S,17308,Saint-Agnant,17,Charente-Maritime,-0.9724,45.88062,21.94,1992-07-23,2026-10-09,FG093,Multicouche calcaire du Turonien-Coniacien-Santonien dans les bassins versants de la Charente et de la Seudre,AGNANT
 BSS001SHVH,06823X0100/PIEZO,17389,Sainte-Radegonde,17,Charente-Maritime,-0.8791,45.84792,29.0,2006-07-14,2026-10-08,FG093,Multicouche calcaire du Turonien-Coniacien-Santonien dans les bassins versants de la Charente et de la Seudre,RADEGONDE
 BSS001SJQR,06828X0024/S,17112,La Clisse,17,Charente-Maritime,-0.75527,45.72288,28.98,1992-06-24,2026-10-09,FG075B,Sables et graviers de l'infra-Cénomanien-Cénomanien captif du Nord du Bassin aquitain,LACLISSE
+BSS001SKAD,06831X0082/F,17285,Port-d'Envaux,17,Charente-Maritime,-0.69392,45.83827,15.0,2006-07-13,2026-10-15,FG075A,Calcaires du Cénomanien majoritairement captif du Nord du Bassin aquitain,ANCIENNE LAITERIE PIÉZO
+BSS001SKBB,06832X0016/S,17412,Saint-Vaize,17,Charente-Maritime,-0.63123,45.81217,13.0,1992-01-10,2026-10-15,FG075A,Calcaires du Cénomanien majoritairement captif du Nord du Bassin aquitain,LA SALLE (SAINT-VAIZE - 17)
 BSS001SKWA,06837X0017/F,17314,Saint-Césaire,17,Charente-Maritime,-0.50252,45.75865,32.66,1997-07-24,2026-10-09,FG075A,Calcaires du Cénomanien majoritairement captif du Nord du Bassin aquitain,CESAIRE
 BSS001SLHN,06842X0015/S,17031,Ballans,17,Charente-Maritime,-0.20237,45.81467,75.33,1992-06-11,2026-10-08,FG016C,Calcaires du Jurassique supérieur du bassin versant de la Charente moyenne,BALLANS
 BSS001SLRM,06844X0070/F,16228,Montigné,16,Charente,-0.07306,45.83079,87.0,2000-08-31,2026-10-09,FG016C,Calcaires du Jurassique supérieur du bassin versant de la Charente moyenne,
@@ -2569,6 +2571,7 @@ BSS004CFVR,BSS004CFVR/X,59375,Marchiennes,59,Nord,3.28867,50.40188,16.84,2022-03
 BSS004CFVX,BSS004CFVX/X,59375,Marchiennes,59,Nord,3.28871,50.40194,16.48,2022-03-09,2026-10-09,AG318,Sables du Landénien d'Orchies,MARCHIENNES SABLE
 BSS004CGXW,BSS004CGXW/X,2A247,Porto-Vecchio,2A,Corse-du-Sud,9.26552,41.56956,-999.0,2022-04-13,2026-10-08,EG400,"Alluvions des fleuves côtiers de l'Extrême Sud (Solenzara, Tarco, Cavo, Oso, Stabiacciu et Pietroso, Figari)",PIÉZO BRGM - PORTO-VECCHIO
 BSS004CHXA,BSS004CHXA/X,84039,Courthézon,84,Vaucluse,4.88409,44.08753,-999.0,2022-06-14,2026-08-31,DG218,Molasses miocènes du Comtat,FORAGE DES NEUF FONTS ANCIEN
+BSS004CMMV,BSS004CMMV/X,97112,Grand-Bourg,971,Guadeloupe,-61.30495,15.88814,32.69,2026-09-01,2026-09-16,,,FORAGE HÔPITAL MARIE-GALANTE
 BSS004CMPH,BSS004CMPH/X,97112,Grand-Bourg,971,Guadeloupe,-61.32036,15.92605,7.22,2022-02-10,2026-10-09,IG002,Calcaires de Marie-Galante,POISSON_2
 BSS004CRQX,BSS004CRQX/X,97107,Capesterre-Belle-Eau,971,Guadeloupe,-61.56587,16.04702,27.0,2023-12-04,2026-09-14,IG003,Edifices volcaniques du Sud de Basse-Terre,PIEZOMETRE LACAVÉ 2
 BSS004CRQY,BSS004CRQY/X,97107,Capesterre-Belle-Eau,971,Guadeloupe,-61.56575,16.05175,32.0,2022-06-28,2026-09-14,IG003,Edifices volcaniques du Sud de Basse-Terre,PIEZOMETRE BOULANGERIE

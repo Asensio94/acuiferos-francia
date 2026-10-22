@@ -31,6 +31,7 @@ TEXT = {
 def footer_nav(lang: str = "es") -> str:
     """The hub link and the sibling list; this project is plain text, marked as the current page."""
     hub, hub_path, label = TEXT[lang]
+    colon = " :" if lang == "fr" else ":"  # French puts a no-break space before it
     items = []
     for slug, es, fr, fr_path in PROJECTS:
         name = fr if lang == "fr" else es
@@ -40,4 +41,4 @@ def footer_nav(lang: str = "es") -> str:
             href = SITE + (fr_path if lang == "fr" else f"{slug}/")
             items.append(f'    <li><a href="{href}">{name}</a></li>')
     return (f'<p class="hub"><a href="{SITE}{hub_path}">{hub}</a></p>\n'
-            f'  <nav aria-label="{label}">{label}:<ul class="siblings">\n' + "\n".join(items) + "\n  </ul></nav>")
+            f'  <nav aria-label="{label}">{label}{colon}<ul class="siblings">\n' + "\n".join(items) + "\n  </ul></nav>")

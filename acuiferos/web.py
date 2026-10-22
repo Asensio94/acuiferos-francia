@@ -67,6 +67,7 @@ tr:target td{{background:color-mix(in srgb,var(--accent) 10%,transparent)}}
   background:var(--paper);color:var(--ink);cursor:pointer}}
 .tools button[aria-pressed="true"]{{background:var(--accent);border-color:var(--accent);color:var(--paper)}}
 .flag{{font-weight:600}}
+.lang{{margin:6px 0 0;font-size:.9rem}}.lang a{{color:inherit}}
 #ficha{{margin:16px 0}}
 #ficha h3{{margin:0 0 4px;font:600 20px/1.2 var(--font-title);text-transform:uppercase;letter-spacing:.04em}}
 #ficha dl{{display:grid;grid-template-columns:max-content 1fr;gap:2px 14px;font-size:14.5px;margin:10px 0}}
@@ -177,9 +178,11 @@ def method_html(rep: Report) -> str:
     return f"""<section class="method" id="metodo">
   <h2>Cómo se calcula</h2>
   <ol>
-    <li><b>Piezómetros.</b> Hub'Eau publica la red de seguimiento de las aguas subterráneas de Francia (banco
-    ADES, BRGM). Se siguen los {_n(len(rep.points))} piezómetros con alguna medida en los últimos 45 días; si uno deja de
-    medir, conserva su serie y aparece sin dato.</li>
+    <li><b>Piezómetros.</b> Un piezómetro es un pozo de control donde se mide el nivel del agua subterránea
+    (el «nivel piezométrico», en francés <i lang="fr">niveau piézométrique</i>: a qué altura está el agua del
+    acuífero). Hub'Eau publica la red de seguimiento de las aguas subterráneas de Francia (banco ADES del BRGM, el
+    servicio geológico francés, y de los demás productores). Se siguen los {_n(len(rep.points))} piezómetros con
+    alguna medida en los últimos 45 días; si uno deja de medir, conserva su serie y aparece sin dato.</li>
     <li><b>Medidas.</b> Se descarga el nivel diario en metros sobre el nivel del mar (NGF) de toda la serie. Se
     descartan las medidas que el productor califica de incorrectas y las tomadas con el pozo bombeando o
     influido por bombeos cercanos (naturaleza «dinámica» o «influida»). Varias medidas de un día cuentan como
@@ -279,7 +282,8 @@ def render(today: date | None = None) -> Path:
     records = sum(p.now.record == "low" for p in classified)
     flagged = [d for d in rep.departments if d.flag]
     yoy = rep.low_share_vs_year_ago()
-    yoy_txt = f"<small>hace un año, {_pct(yoy[1])}</small>" if yoy else ""
+    yoy_txt = (f"<small>hace un año, {_pct(yoy[1])} (de los {_n(yoy[2])} clasificados entonces y ahora)</small>"
+               if yoy else "")
     lowest, n_very_low = _lowest_rows(rep)
     restrictions = {d.code: vigieau.rank(d.restriction) if d.restriction is not None else -1 for d in rep.departments}
     classes_js = json.dumps({k: {"label": LABELS[k], "color": CLASS_COLORS[k], "upper": upper}
@@ -297,6 +301,7 @@ def render(today: date | None = None) -> Path:
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Acuíferos de Francia</title>
 <meta name="description" content="El nivel de las aguas subterráneas de Francia frente a su propia historia, y frente a las restricciones por sequía en vigor.">
+<link rel="alternate" hreflang="fr" href="fr/">
 {favicon_link(ACCENT, ACCENT_DARK)}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <style>
@@ -307,9 +312,11 @@ def render(today: date | None = None) -> Path:
 <body>
 <header class="site-header">
   <h1>{LOGO_SVG}Acuíferos de <span>Francia</span></h1>
-  <p class="lede">Cada piezómetro de Francia comparado consigo mismo: si el nivel de {month_name(rep.month)} es bajo o alto
-  frente al mismo mes de los demás años, y si su departamento tiene restricciones por sequía en las aguas
-  subterráneas. Datos de Hub'Eau (BRGM) y VigiEau.</p>
+  <p class="lede">Cada piezómetro de Francia (un pozo de control donde se mide el nivel del agua subterránea)
+  comparado consigo mismo: si el nivel de {month_name(rep.month)} es bajo o alto frente al mismo mes de los demás
+  años, y si su departamento tiene restricciones por sequía en las aguas subterráneas. Datos de Hub'Eau (BRGM) y
+  VigiEau.</p>
+  <p class="lang" lang="fr"><a href="fr/" hreflang="fr">Version française</a></p>
   <div class="figures">
     <div><b>{_n(len(classified))}</b><span>piezómetros clasificados</span><small>de {_n(len(rep.points))} activos</small></div>
     <div><b>{_pct(n_low / len(classified)) if classified else "—"}</b><span>bajos o muy bajos en {MONTHS[int(rep.month[5:]) - 1]}</span>{yoy_txt}</div>
@@ -347,7 +354,7 @@ def render(today: date | None = None) -> Path:
   <h2>Los más bajos de {month_name(rep.month)}</h2>
   <p class="note">{_n(n_very_low)} piezómetros en «muy bajo»{f"; se muestran los {LOWEST_ROWS} con la probabilidad más baja" if n_very_low > LOWEST_ROWS else ""}.</p>
   <div class="wrap"><table class="t">
-    <thead><tr><th>Piezómetro</th><th>Departamento</th><th>Masa de agua</th><th class="num">Nivel<br>m NGF</th>
+    <thead><tr><th>Piezómetro</th><th>Departamento</th><th>Masa de agua</th><th class="num">Nivel<br><abbr title="metros sobre el nivel del mar (nivelación general de Francia)">m NGF</abbr></th>
     <th class="num">Años de<br>referencia</th><th>Clase</th></tr></thead>
     <tbody>
 {lowest}
@@ -573,4 +580,6 @@ document.querySelectorAll('.tools button').forEach(b => b.addEventListener('clic
 """
     out = DOCS_DIR / "index.html"
     out.write_text(html, encoding="utf-8")
+    from .web_fr import render_fr  # here, not at the top: web_fr imports this module
+    render_fr(rep, now)
     return out

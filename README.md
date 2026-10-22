@@ -105,15 +105,17 @@ python -m pytest -q
 - Contornos: IGN Admin Express vía [france-geojson](https://github.com/gregoiredavid/france-geojson), Licence Ouverte.
 - Código: MIT. Datos propios (medias mensuales y clases): CC BY 4.0.
 
-Forma parte de un conjunto de proyectos hermanos:
-[Observatorio de alegaciones](https://github.com/Asensio94/observatorio-alegaciones) ·
+Forma parte de [Terra Aperta](https://asensio94.github.io/terra-aperta/), un conjunto de proyectos hermanos de
+datos abiertos sobre naturaleza:
+[Sub Nocte](https://github.com/Asensio94/sub-nocte) ·
 [Vigía de incendios](https://github.com/Asensio94/vigia-incendios) ·
 [Centinela Natura](https://github.com/Asensio94/centinela-natura) ·
-[Vigilancia de humedales](https://github.com/Asensio94/vigilancia-humedales) ·
-[Sub Nocte](https://github.com/Asensio94/sub-nocte) ·
+[Estado de las IBA](https://github.com/Asensio94/estado-iba) ·
 [Riesgo de tendidos para aves](https://github.com/Asensio94/riesgo-tendidos-aves) ·
+[Observatorio de alegaciones](https://github.com/Asensio94/observatorio-alegaciones) ·
 [Grafo de promotores](https://github.com/Asensio94/grafo-promotores) ·
-[Cartera de las cotizadas](https://github.com/Asensio94/cartera-cotizadas) ·
-[Cuaderno de campo](https://github.com/Asensio94/cuaderno-campo) ·
+[Vigilancia de humedales](https://github.com/Asensio94/vigilancia-humedales) ·
 [Caudal ecológico](https://github.com/Asensio94/caudal-ecologico) ·
-[Estado de las IBA](https://github.com/Asensio94/estado-iba)
+[Acuíferos de Francia](https://github.com/Asensio94/acuiferos-francia) ·
+[Depuración y baño](https://github.com/Asensio94/depuracion-y-bano) ·
+[Construir en zona inundable](https://github.com/Asensio94/zona-inundable)

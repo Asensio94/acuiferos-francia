@@ -13,6 +13,7 @@ from .config import (COMPLETE_SHARE, DATA_DIR, DISCORDANT_LOW_SHARE, DOCS_DIR, M
                      MIN_REFERENCE_YEARS, NORMAL_P, POINTS_DIR, REFRESH_MONTHS, SURFACE_FULL_KM,
                      SURFACE_MAX_KM)
 from .ips import CLASSES, LABELS, band, class_of, classify, metres, months_before
+from .footer import footer_nav
 from .logo import LOGO_SVG, favicon_link
 from .report import Department, Point, Report, build
 
@@ -28,15 +29,6 @@ MONTHS = "enero febrero marzo abril mayo junio julio agosto septiembre octubre n
 CLASS_COLORS = {"very_low": "#a8322d", "low": "#d9644a", "mod_low": "#f0a98c", "normal": "#bdb9b2",
                 "mod_high": "#93b9dd", "high": "#4f86c0", "very_high": "#2a5592"}
 FLAGS = {"low_unrestricted": "Niveles bajos sin restricción", "restricted_normal": "Restricción fuerte con niveles normales"}
-
-SIBLINGS = [
-    ("observatorio-alegaciones", "Observatorio de alegaciones"), ("vigia-incendios", "Vigía de incendios"),
-    ("centinela-natura", "Centinela Natura"), ("vigilancia-humedales", "Vigilancia de humedales"),
-    ("sub-nocte", "Sub Nocte"), ("riesgo-tendidos-aves", "Riesgo de tendidos para aves"),
-    ("grafo-promotores", "Grafo de promotores"), ("cartera-cotizadas", "Cartera de las cotizadas"),
-    ("cuaderno-campo", "Cuaderno de campo"), ("caudal-ecologico", "Caudal ecológico"),
-    ("estado-iba", "Estado de las IBA"), ("acuiferos-francia", "Acuíferos de Francia"),
-]
 
 CSS = f""":root{{--accent:{ACCENT};--accent-dark:{ACCENT_DARK};
   --r0:transparent;--r1:#f3efe8;--r2:#e9e2d6;--r3:#ddd2c0;--r4:#cdbfa8}}
@@ -296,9 +288,6 @@ def render(today: date | None = None) -> Path:
                          for _, k, label in CLASSES)
     legend_restr = "".join(f'<span><i class="sq dep r{i}" style="fill:none;background:var(--r{i})"></i>{escape(label)}</span>'
                            for i, label in enumerate(vigieau.LABELS.values()))
-    siblings = "\n".join(
-        f'    <li{" aria-current=\"page\"" if slug == "acuiferos-francia" else ""}>'
-        f'<a href="https://asensio94.github.io/{slug}/">{name}</a></li>' for slug, name in SIBLINGS)
     vig_day = date.fromisoformat(rep.vigieau_date) if rep.vigieau_date else None
 
     html = f"""<!doctype html>
@@ -375,9 +364,7 @@ def render(today: date | None = None) -> Path:
   <a href="https://github.com/gregoiredavid/france-geojson">france-geojson</a>, Licence Ouverte.
   Datos leídos el {now:%d/%m/%Y a las %H:%M} (hora de París).</p>
   <p>Código en <a href="{REPO}">GitHub</a> (MIT); datos propios CC BY 4.0.</p>
-  <nav aria-label="Proyectos hermanos"><ul class="siblings">
-{siblings}
-  </ul></nav>
+  {footer_nav("es")}
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>

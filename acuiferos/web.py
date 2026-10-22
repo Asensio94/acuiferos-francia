@@ -8,7 +8,7 @@ from html import escape
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from . import vigieau
+from . import signals, store, vigieau
 from .config import (COMPLETE_SHARE, DATA_DIR, DISCORDANT_LOW_SHARE, DOCS_DIR, MIN_DEPARTMENT_POINTS,
                      MIN_REFERENCE_YEARS, NORMAL_P, POINTS_DIR, REFRESH_MONTHS, SURFACE_FULL_KM,
                      SURFACE_MAX_KM)
@@ -209,6 +209,10 @@ def method_html(rep: Report) -> str:
     alerta reforzada o crisis y la mediana de los piezómetros está en torno a lo normal o más alta
     (probabilidad por encima de {_dec(NORMAL_P)}). Son indicios para mirar, no veredictos: el prefecto decide con más
     datos (caudales, usos, el decreto marco).</li>
+    <li><b>Señales.</b> <a href="signals.json">signals.json</a> lista cada piezómetro en «bajo» o «muy bajo», con su
+    municipio (código INSEE), la fecha de su última medida y los metros respecto a lo habitual del mes, en el formato
+    común de los proyectos hermanos (<a href="https://github.com/Asensio94/estado-iba/blob/main/CONTRATO.md">CONTRATO.md</a>
+    de Estado de las IBA, tipo <code>groundwater_level</code>). Son las mismas clases de esta página: no hay otro umbral.</li>
   </ol>
   <h3>Clases</h3>
   <table class="params"><thead><tr><th>Clase</th><th class="num">Probabilidad</th><th class="num">Piezómetros en {month_name(rep.month)}</th></tr></thead>
@@ -276,6 +280,7 @@ def render(today: date | None = None) -> Path:
     rep = build(today)
     DOCS_DIR.mkdir(exist_ok=True)
     write_points(rep)
+    signals.write(rep, store.load_latest(), now)
 
     classified = rep.classified
     n_low = sum(p.now.cls in ("very_low", "low") for p in classified)

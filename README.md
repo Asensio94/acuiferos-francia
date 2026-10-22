@@ -35,6 +35,17 @@ Niveles de Hub'Eau (BRGM); restricciones de VigiEau. Web: https://asensio94.gith
    método), `docs/fr/index.html` (`acuiferos/web_fr.py`: lo mismo en francés salvo el mapa y las fichas, que
    enlaza en la página en español), `docs/puntos.json` para el mapa y una ficha JSON por piezómetro con sus 36 últimos meses y la
    banda histórica de cada mes, y el nivel en metros respecto a lo habitual y bajo el punto de medida.
+9. **Señales.** `acuiferos/signals.py` escribe `docs/signals.json` para
+   [Estado de las IBA](https://github.com/Asensio94/estado-iba), en el formato común de los proyectos hermanos
+   ([CONTRATO.md](https://github.com/Asensio94/estado-iba/blob/main/CONTRATO.md), versión 2, país `FR`, tipo
+   `groundwater_level`). Hay una señal por piezómetro cuyo último mes completo está en «bajo» o «muy bajo»
+   (probabilidad 0,20 o menos), las mismas clases de la web: no hay otro umbral. Cada una lleva el código INSEE
+   de su municipio, `precision: "punto"` con las coordenadas del pozo, la fecha de su última medida, el enlace a
+   su ficha (`https://asensio94.github.io/acuiferos-francia/#<bss_id>`), la clase en `status` (`muy bajo` o
+   `bajo`) y en `value` los metros respecto a la mediana de ese mes en los demás años (negativo: por debajo).
+   En `details` van el mes evaluado, la probabilidad, los años de referencia, el nivel en m NGF, si es el
+   mínimo de la serie y la masa de agua. Un test valida el fichero contra una copia del esquema de estado-iba
+   (`tests/signals.schema.json`).
 
 ## Contraste / validación
 
@@ -74,9 +85,6 @@ Pendiente: contrastar clase a clase con el mapa del boletín.
 ## Pendiente
 
 - Contrastar clase a clase con el mapa del boletín del BRGM.
-- Publicar `signals.json`. El contrato de estado-iba ya admite Francia (versión 2), pero no tiene un tipo
-  (`kind`) para el nivel de las aguas subterráneas, y `validate` rechaza un tipo nuevo: primero hay que
-  añadirlo allí (contrato, esquema y `adapters.KINDS`).
 - Llevar el mapa y la ficha de cada piezómetro a la página en francés.
 - Mostrar cuánto tiempo lleva cada departamento en cada nivel de restricción, con el histórico de
   `data/vigieau.csv` que se va acumulando.
@@ -101,6 +109,9 @@ python -m pytest -q
 | `data/latest.csv` | Última medida diaria de cada piezómetro |
 | `data/vigieau.csv` | Nivel de restricción por departamento y día |
 | `data/departements.geojson` | Contornos de departamento simplificados |
+
+En la web (rama `gh-pages`, rehecha cada día) se publican además `puntos.json`, una ficha por piezómetro en
+`p/<bss_id>.json` y `signals.json`.
 
 ## Fuentes y licencias
 

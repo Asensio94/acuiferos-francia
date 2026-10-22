@@ -106,6 +106,10 @@ def method_html(rep: Report) -> str:
     renforcée ou en crise quand la médiane des piézomètres est autour de la normale ou plus haute (probabilité
     au-dessus de {_dec(NORMAL_P)}). Ce sont des indices à regarder, pas des verdicts : le préfet décide avec plus
     de données (débits, usages, arrêté-cadre).</li>
+    <li><b>Signaux.</b> <a href="../signals.json">signals.json</a> liste chaque piézomètre « bas » ou « très bas »,
+    avec sa commune (code INSEE), la date de sa dernière mesure et les mètres par rapport à l'habituel du mois, dans
+    le format commun des projets frères (<a href="https://github.com/Asensio94/estado-iba/blob/main/CONTRATO.md">CONTRATO.md</a>
+    d'État des IBA, type <code>groundwater_level</code>). Ce sont les mêmes classes que sur cette page : pas d'autre seuil.</li>
   </ol>
   <h3>Classes</h3>
   <table class="params"><thead><tr><th>Classe</th><th class="num">Probabilité</th><th class="num">Piézomètres en {month_name(rep.month)}</th></tr></thead>

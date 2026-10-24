@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nappes de France</title>
+<meta name="description" content="Le niveau des eaux souterraines de France face à sa propre histoire, et face aux restrictions sécheresse en vigueur.">
+<link rel="alternate" hreflang="es" href="../">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cstyle%3E.b%7Bfill%3A%23221d1a%7D.p%7Bfill%3A%237f3b8c%7D.l%7Bstroke%3A%23221d1a%7D%40media%20%28prefers-color-scheme%3Adark%29%7B.b%7Bfill%3A%23ede6e0%7D.p%7Bfill%3A%23d29be0%7D.l%7Bstroke%3A%23ede6e0%7D%7D%3C/style%3E%3Cg%20class%3D%22b%22%3E%3Ccircle%20cx%3D%2234%22%20cy%3D%2231%22%20r%3D%2219%22/%3E%3Cpath%20d%3D%22M19%2040%207%2050.5l3.5%204L25%2046z%22/%3E%3Cpath%20d%3D%22M52%2022l8%202.5-8%202.5z%22/%3E%3C/g%3E%3Cpath%20class%3D%22p%22%20d%3D%22M34%2012a19%2019%200%200%201%2015%2030.8C42%2041%2037%2034%2037%2026c0-6%201.5-10.5%204-12.6A19%2019%200%200%200%2034%2012z%22/%3E%3Cg%20fill%3D%22%23221d1a%22%3E%3Ccircle%20cx%3D%2245%22%20cy%3D%2221.5%22%20r%3D%222.1%22/%3E%3C/g%3E%3Cpath%20class%3D%22l%22%20d%3D%22M31%2049.5V60m7-11v11m-10.5.2h6m1.5%200h6%22%20fill%3D%22none%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E">
+<style>
+/* common.css v1.1 — shared look of the nine open-data projects (vigia-incendios is the reference).
+   Copy this file verbatim into each repo; change it in all repos at once, never in one.
+   Each repo sets only --accent and --accent-dark below it and adds its own rules after it.
+
+   Type:  Barlow Condensed for titles and labels, Source Serif 4 for reading, IBM Plex Mono for
+          figures, codes and dates. Load them with:
+   https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap */
+
+:root{
+  --ground:#f0edea; --paper:#faf8f6; --ink:#221d1a; --muted:#6b625c; --line:#dad2cb;
+  --accent:#c2410c; --accent-dark:#fb7b3e;
+  --natura:#2f7a55; --natura-dark:#62b88a;
+  --shadow:0 1px 0 rgba(34,29,26,.06), 0 6px 18px -10px rgba(34,29,26,.28);
+  --font-title:"Barlow Condensed","Arial Narrow",sans-serif;
+  --font-text:"Source Serif 4",Georgia,serif;
+  --font-data:"IBM Plex Mono",ui-monospace,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#15110f; --paper:#1d1815; --ink:#ede6e0; --muted:#a69a91; --line:#362d28;
+    --accent:var(--accent-dark); --natura:var(--natura-dark);
+    --shadow:0 1px 0 rgba(0,0,0,.3), 0 8px 22px -12px rgba(0,0,0,.7);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#15110f; --paper:#1d1815; --ink:#ede6e0; --muted:#a69a91; --line:#362d28;
+  --accent:var(--accent-dark); --natura:var(--natura-dark);
+  --shadow:0 1px 0 rgba(0,0,0,.3), 0 8px 22px -12px rgba(0,0,0,.7);
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font:17px/1.55 var(--font-text);overflow-wrap:break-word}
+a{color:inherit;text-decoration-color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+img,svg{max-width:100%}
+
+/* Header: «PROJECT NAME» with the key word in the accent colour, one sentence, then the figures. */
+.site-header{max-width:1440px;margin:0 auto;padding:28px 16px 18px;display:grid;gap:14px}
+.site-header h1{margin:0;font:700 clamp(40px,6vw,64px)/.9 var(--font-title);text-transform:uppercase;letter-spacing:.02em}
+.site-header h1 span{color:var(--accent)}
+/* Logo: the robin from logo.py before the title; same shape everywhere, breast in the accent. */
+.logo{display:inline-block;width:1.05em;height:1.05em;margin-right:.16em;vertical-align:-.13em;color:var(--ink);overflow:visible}
+.logo .logo-breast{fill:var(--accent)}
+.site-header .lede{margin:0;max-width:72ch;font-size:18px}
+.figures{display:flex;flex-wrap:wrap;gap:12px 28px;margin:0;padding:12px 0 0;border-top:1px solid var(--line)}
+.figures div{display:grid;gap:2px}
+.figures b{font:600 30px/1 var(--font-data);font-variant-numeric:tabular-nums;color:var(--accent)}
+.figures span{font:600 13px/1.2 var(--font-title);text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+
+/* Text roles */
+.label{font-family:var(--font-title);text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+.data{font-family:var(--font-data);font-variant-numeric:tabular-nums}
+.note{color:var(--muted);font-size:14.5px}
+.badge{display:inline-block;font:600 12px/1 var(--font-title);text-transform:uppercase;letter-spacing:.09em;padding:4px 7px 3px;border:1.5px solid currentColor;color:var(--accent)}
+
+/* Cards and panels */
+.card{background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow);padding:16px}
+
+/* Method section: how every figure is computed, step by step */
+.method{max-width:1440px;margin:0 auto;padding:24px 16px}
+.method h2{margin:0 0 6px;font:700 28px/1 var(--font-title);text-transform:uppercase;letter-spacing:.03em}
+.method h3{margin:18px 0 4px;font:600 18px/1.2 var(--font-title);text-transform:uppercase;letter-spacing:.06em}
+.method p,.method li{max-width:72ch}
+table.params{border-collapse:collapse;font-size:14.5px;width:100%;max-width:900px}
+table.params th,table.params td{text-align:left;vertical-align:top;padding:6px 10px 6px 0;border-bottom:1px solid var(--line)}
+table.params th{font:600 14px/1.3 var(--font-title);text-transform:uppercase;letter-spacing:.05em;white-space:nowrap;padding-right:16px}
+table.params td.num,table.params th.num{text-align:right;font-family:var(--font-data);font-variant-numeric:tabular-nums}
+
+/* Footer: sources, licence, the shared principle and the sibling projects */
+.site-footer{max-width:1440px;margin:0 auto;padding:16px 16px 40px;font-size:13.5px;color:var(--muted);border-top:1px solid var(--line);display:grid;gap:10px}
+.site-footer .principle{margin:0;color:var(--ink);font-style:italic}
+.siblings{display:flex;flex-wrap:wrap;gap:4px 14px;margin:0;padding:0;list-style:none}
+.siblings li a{text-decoration-color:var(--line)}
+.siblings li[aria-current] a{color:var(--ink);text-decoration-color:var(--accent);font-weight:600}
+
+@media (max-width:640px){
+  body{font-size:16px}
+  .figures b{font-size:24px}
+}
+
+:root{--accent:#7f3b8c;--accent-dark:#d29be0;
+  --r0:transparent;--r1:#f3efe8;--r2:#e9e2d6;--r3:#ddd2c0;--r4:#cdbfa8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--r1:#262320;--r2:#2f2b27;--r3:#3a352f;--r4:#474038}}
+:root[data-theme="dark"]{--r1:#262320;--r2:#2f2b27;--r3:#3a352f;--r4:#474038}
+main{max-width:1440px;margin:0 auto;padding:0 16px}
+h2{font:700 26px/1.1 var(--font-title);text-transform:uppercase;letter-spacing:.03em;margin:32px 0 8px}
+.figures small{font:400 13px/1.3 var(--font-text);color:var(--muted);text-transform:none;letter-spacing:0}
+#map{height:min(72vh,640px);border:1px solid var(--line);background:var(--paper)}
+.leaflet-container{background:var(--paper);font:13px var(--font-text)}
+.leaflet-bar a,.leaflet-tooltip{background:var(--paper);color:var(--ink);border-color:var(--line)}
+.dep{stroke:var(--muted);stroke-width:.7;fill-opacity:1}
+.dep.r0{fill:var(--r0)}.dep.r1{fill:var(--r1)}.dep.r2{fill:var(--r2)}.dep.r3{fill:var(--r3)}.dep.r4{fill:var(--r4)}
+.dep.rx{fill:transparent}
+.hide-restr .dep{fill:transparent!important}
+.leaflet-deps-pane svg{max-width:none!important;max-height:none!important}
+.surf .dep{fill:transparent!important}
+.legend[hidden]{display:none}
+.view{display:flex;flex-wrap:wrap;gap:6px 14px;margin:10px 0;font-size:14px;align-items:center}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin:10px 0;font-size:14px;align-items:center}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:12px;height:12px;border-radius:50%;display:inline-block;border:1px solid var(--line)}
+.sq{width:14px;height:12px;display:inline-block;border:1px solid var(--muted)}
+.legend label{display:inline-flex;gap:6px;align-items:center;cursor:pointer}
+.wrap{overflow-x:auto}
+table.t{width:100%;border-collapse:collapse;font-size:.92rem}
+.t th{text-align:left;font-weight:600;color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.03em;
+  padding:8px 10px;border-bottom:2px solid var(--line);white-space:nowrap}
+.t td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.t .num{text-align:right;font-family:var(--font-data);font-variant-numeric:tabular-nums;white-space:nowrap}
+.t .sub{display:block;color:var(--muted);font-size:.82rem}
+.t tr[hidden]{display:none}
+tr:target td{background:color-mix(in srgb,var(--accent) 10%,transparent)}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.tools button{font:inherit;font-size:.9rem;padding:6px 12px;border:1px solid var(--line);border-radius:999px;
+  background:var(--paper);color:var(--ink);cursor:pointer}
+.tools button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+.flag{font-weight:600}
+.lang{margin:6px 0 0;font-size:.9rem}.lang a{color:inherit}
+#ficha{margin:16px 0}
+#ficha h3{margin:0 0 4px;font:600 20px/1.2 var(--font-title);text-transform:uppercase;letter-spacing:.04em}
+#ficha dl{display:grid;grid-template-columns:max-content 1fr;gap:2px 14px;font-size:14.5px;margin:10px 0}
+#ficha dt{color:var(--muted)}#ficha dd{margin:0}
+svg.chart{width:100%;height:auto;display:block;max-width:820px}
+.chart .band{fill:var(--accent);opacity:.14}
+.chart .ext{stroke:var(--muted);stroke-dasharray:1 3;fill:none;stroke-width:1}
+.chart .med{stroke:var(--muted);stroke-dasharray:5 3;fill:none;stroke-width:1.2}
+.chart .line{stroke:var(--ink);stroke-width:2;fill:none;stroke-linejoin:round}
+.chart .axis{stroke:var(--line);stroke-width:1}
+.chart text{fill:var(--muted);font:12px var(--font-data)}
+.chart .hit{fill:transparent}.chart .hit:hover{fill:var(--ink);opacity:.06}
+.chart circle{stroke:var(--paper);stroke-width:2}
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <h1><svg class="logo" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><g fill="currentColor"><circle cx="34" cy="31" r="19"/><path d="M19 40 7 50.5l3.5 4L25 46z"/><path d="M52 22l8 2.5-8 2.5z"/></g><path class="logo-breast" d="M34 12a19 19 0 0 1 15 30.8C42 41 37 34 37 26c0-6 1.5-10.5 4-12.6A19 19 0 0 0 34 12z"/><g fill="#221d1a"><circle cx="45" cy="21.5" r="2.1"/></g><path d="M31 49.5V60m7-11v11m-10.5.2h6m1.5 0h6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>Nappes de <span>France</span></h1>
+  <p class="lede">Chaque piézomètre de France (un puits d'observation où l'on mesure le niveau de l'eau souterraine)
+  comparé à lui-même : le niveau de septembre 2026 est-il bas ou haut par rapport au même mois des autres
+  années, et son département a-t-il des restrictions sécheresse sur les eaux souterraines ? Données Hub'Eau (BRGM)
+  et VigiEau.</p>
+  <p class="lang" lang="es"><a href="../" hreflang="es">Versión en español</a></p>
+  <div class="figures">
+    <div><b>1 962</b><span>piézomètres classés</span><small>sur 2 763 actifs</small></div>
+    <div><b>40 %</b><span>bas ou très bas en septembre</span><small>il y a un an, 11 % (sur les 1 897 classés alors et aujourd'hui)</small></div>
+    <div><b>286</b><span>au minimum de leur série</span><small>pour un mois de septembre</small></div>
+    <div><b>20</b><span>départements avec indice</span><small>niveaux et restriction ne concordent pas</small></div>
+  </div>
+</header>
+<main>
+  <p class="note">La carte interactive (niveau interpolé, piézomètres et restrictions) et la fiche de chaque
+  piézomètre avec sa courbe sont pour l'instant sur la <a href="../">page en espagnol</a>.</p>
+  <h2>Départements</h2>
+  <div class="wrap"><table class="t" id="deps">
+    <thead><tr><th>Département</th><th>Restriction eaux souterraines</th><th class="num">Classés</th>
+    <th class="num">Bas ou très bas</th><th>Médiane</th><th>Indice</th></tr></thead>
+    <tbody>
+<tr data-flag=""><td>Ain <span class="sub">01</span></td><td>Crise</td><td class="num">17 <span class="sub">sur 27</span></td><td class="num">9 <span class="sub">53 %</span></td><td>Bas</td><td></td></tr>
+<tr data-flag=""><td>Aisne <span class="sub">02</span></td><td>Crise</td><td class="num">33 <span class="sub">sur 39</span></td><td class="num">16 <span class="sub">48 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag="low_unrestricted"><td>Allier <span class="sub">03</span></td><td>Pas de restriction</td><td class="num">14 <span class="sub">sur 20</span></td><td class="num">13 <span class="sub">93 %</span></td><td>Bas</td><td><span class="flag">Niveaux bas sans restriction</span></td></tr>
+<tr data-flag=""><td>Alpes-de-Haute-Provence <span class="sub">04</span></td><td>Crise</td><td class="num">12 <span class="sub">sur 15</span></td><td class="num">6 <span class="sub">50 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag=""><td>Hautes-Alpes <span class="sub">05</span></td><td>Alerte</td><td class="num">10 <span class="sub">sur 11</span></td><td class="num">1 <span class="sub">10 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag=""><td>Alpes-Maritimes <span class="sub">06</span></td><td>Crise</td><td class="num">20 <span class="sub">sur 33</span></td><td class="num">13 <span class="sub">65 %</span></td><td>Bas</td><td></td></tr>
+<tr data-flag=""><td>Ardèche <span class="sub">07</span></td><td>Crise</td><td class="num">1 <span class="sub">sur 3</span></td><td class="num">0 <span class="sub">0 %</span></td><td>Très haut</td><td></td></tr>
+<tr data-flag=""><td>Ardennes <span class="sub">08</span></td><td>Crise</td><td class="num">12 <span class="sub">sur 13</span></td><td class="num">10 <span class="sub">83 %</span></td><td>Très bas</td><td></td></tr>
+<tr data-flag=""><td>Ariège <span class="sub">09</span></td><td>Alerte renforcée</td><td class="num">5 <span class="sub">sur 13</span></td><td class="num">1 <span class="sub">20 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag=""><td>Aube <span class="sub">10</span></td><td>Alerte renforcée</td><td class="num">14 <span class="sub">sur 19</span></td><td class="num">9 <span class="sub">64 %</span></td><td>Bas</td><td></td></tr>
+<tr data-flag="restricted_normal"><td>Aude <span class="sub">11</span></td><td>Crise</td><td class="num">10 <span class="sub">sur 19</span></td><td class="num">2 <span class="sub">20 %</span></td><td>Autour de la normale</td><td><span class="flag">Restriction forte avec niveaux normaux</span></td></tr>
+<tr data-flag=""><td>Aveyron <span class="sub">12</span></td><td>Crise</td><td class="num">0 <span class="sub">sur 1</span></td><td class="num">—</td><td>—</td><td></td></tr>
+<tr data-flag=""><td>Bouches-du-Rhône <span class="sub">13</span></td><td>Pas de restriction</td><td class="num">16 <span class="sub">sur 47</span></td><td class="num">2 <span class="sub">12 %</span></td><td>Autour de la normale</td><td></td></tr>
+<tr data-flag=""><td>Calvados <span class="sub">14</span></td><td>Crise</td><td class="num">21 <span class="sub">sur 25</span></td><td class="num">9 <span class="sub">43 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag=""><td>Cantal <span class="sub">15</span></td><td>Crise</td><td class="num">5 <span class="sub">sur 5</span></td><td class="num">4 <span class="sub">80 %</span></td><td>Bas</td><td></td></tr>
+<tr data-flag=""><td>Charente <span class="sub">16</span></td><td>Pas de restriction</td><td class="num">26 <span class="sub">sur 27</span></td><td class="num">9 <span class="sub">35 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag="restricted_normal"><td>Charente-Maritime <span class="sub">17</span></td><td>Crise</td><td class="num">108 <span class="sub">sur 137</span></td><td class="num">27 <span class="sub">25 %</span></td><td>Autour de la normale</td><td><span class="flag">Restriction forte avec niveaux normaux</span></td></tr>
+<tr data-flag=""><td>Cher <span class="sub">18</span></td><td>Crise</td><td class="num">31 <span class="sub">sur 35</span></td><td class="num">19 <span class="sub">61 %</span></td><td>Bas</td><td></td></tr>
+<tr data-flag=""><td>Corrèze <span class="sub">19</span></td><td>Crise</td><td class="num">14 <span class="sub">sur 14</span></td><td class="num">11 <span class="sub">79 %</span></td><td>Très bas</td><td></td></tr>
+<tr data-flag=""><td>Côte-d&#x27;Or <span class="sub">21</span></td><td>Crise</td><td class="num">32 <span class="sub">sur 36</span></td><td class="num">18 <span class="sub">56 %</span></td><td>Bas</td><td></td></tr>
+<tr data-flag=""><td>Côtes-d&#x27;Armor <span class="sub">22</span></td><td>Crise</td><td class="num">12 <span class="sub">sur 12</span></td><td class="num">10 <span class="sub">83 %</span></td><td>Très bas</td><td></td></tr>
+<tr data-flag=""><td>Creuse <span class="sub">23</span></td><td>Crise</td><td class="num">13 <span class="sub">sur 14</span></td><td class="num">10 <span class="sub">77 %</span></td><td>Très bas</td><td></td></tr>
+<tr data-flag=""><td>Dordogne <span class="sub">24</span></td><td>Pas de restriction</td><td class="num">58 <span class="sub">sur 70</span></td><td class="num">19 <span class="sub">33 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag=""><td>Doubs <span class="sub">25</span></td><td>Crise</td><td class="num">7 <span class="sub">sur 10</span></td><td class="num">6 <span class="sub">86 %</span></td><td>Bas</td><td></td></tr>
+<tr data-flag=""><td>Drôme <span class="sub">26</span></td><td>Alerte renforcée</td><td class="num">40 <span class="sub">sur 52</span></td><td class="num">10 <span class="sub">25 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag="restricted_normal"><td>Eure <span class="sub">27</span></td><td>Alerte renforcée</td><td class="num">24 <span class="sub">sur 32</span></td><td class="num">1 <span class="sub">4 %</span></td><td>Autour de la normale</td><td><span class="flag">Restriction forte avec niveaux normaux</span></td></tr>
+<tr data-flag="restricted_normal"><td>Eure-et-Loir <span class="sub">28</span></td><td>Crise</td><td class="num">35 <span class="sub">sur 43</span></td><td class="num">7 <span class="sub">20 %</span></td><td>Autour de la normale</td><td><span class="flag">Restriction forte avec niveaux normaux</span></td></tr>
+<tr data-flag=""><td>Finistère <span class="sub">29</span></td><td>Crise</td><td class="num">16 <span class="sub">sur 16</span></td><td class="num">13 <span class="sub">81 %</span></td><td>Très bas</td><td></td></tr>
+<tr data-flag=""><td>Corse-du-Sud <span class="sub">2A</span></td><td>Alerte renforcée</td><td class="num">4 <span class="sub">sur 11</span></td><td class="num">2 <span class="sub">50 %</span></td><td>Bas</td><td></td></tr>
+<tr data-flag=""><td>Haute-Corse <span class="sub">2B</span></td><td>Pas de restriction</td><td class="num">9 <span class="sub">sur 22</span></td><td class="num">4 <span class="sub">44 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag=""><td>Gard <span class="sub">30</span></td><td>Pas de restriction</td><td class="num">40 <span class="sub">sur 42</span></td><td class="num">10 <span class="sub">25 %</span></td><td>Autour de la normale</td><td></td></tr>
+<tr data-flag=""><td>Haute-Garonne <span class="sub">31</span></td><td>Pas de restriction</td><td class="num">12 <span class="sub">sur 13</span></td><td class="num">5 <span class="sub">42 %</span></td><td>Autour de la normale</td><td></td></tr>
+<tr data-flag="low_unrestricted"><td>Gers <span class="sub">32</span></td><td>Pas de restriction</td><td class="num">3 <span class="sub">sur 4</span></td><td class="num">2 <span class="sub">67 %</span></td><td>Très bas</td><td><span class="flag">Niveaux bas sans restriction</span></td></tr>
+<tr data-flag="low_unrestricted"><td>Gironde <span class="sub">33</span></td><td>Pas de restriction</td><td class="num">132 <span class="sub">sur 202</span></td><td class="num">72 <span class="sub">55 %</span></td><td>Bas</td><td><span class="flag">Niveaux bas sans restriction</span></td></tr>
+<tr data-flag="restricted_normal"><td>Hérault <span class="sub">34</span></td><td>Crise</td><td class="num">55 <span class="sub">sur 131</span></td><td class="num">9 <span class="sub">16 %</span></td><td>Autour de la normale</td><td><span class="flag">Restriction forte avec niveaux normaux</span></td></tr>
+<tr data-flag=""><td>Ille-et-Vilaine <span class="sub">35</span></td><td>Crise</td><td class="num">13 <span class="sub">sur 13</span></td><td class="num">6 <span class="sub">46 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag=""><td>Indre <span class="sub">36</span></td><td>Crise</td><td class="num">28 <span class="sub">sur 32</span></td><td class="num">10 <span class="sub">36 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag=""><td>Indre-et-Loire <span class="sub">37</span></td><td>Crise</td><td class="num">24 <span class="sub">sur 26</span></td><td class="num">7 <span class="sub">29 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag=""><td>Isère <span class="sub">38</span></td><td>Crise</td><td class="num">20 <span class="sub">sur 20</span></td><td class="num">7 <span class="sub">35 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag=""><td>Jura <span class="sub">39</span></td><td>Crise</td><td class="num">7 <span class="sub">sur 7</span></td><td class="num">5 <span class="sub">71 %</span></td><td>Bas</td><td></td></tr>
+<tr data-flag=""><td>Landes <span class="sub">40</span></td><td>Crise</td><td class="num">86 <span class="sub">sur 94</span></td><td class="num">32 <span class="sub">37 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag=""><td>Loir-et-Cher <span class="sub">41</span></td><td>Crise</td><td class="num">32 <span class="sub">sur 33</span></td><td class="num">14 <span class="sub">44 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag=""><td>Loire <span class="sub">42</span></td><td>Crise</td><td class="num">4 <span class="sub">sur 4</span></td><td class="num">2 <span class="sub">50 %</span></td><td>Bas</td><td></td></tr>
+<tr data-flag="low_unrestricted"><td>Haute-Loire <span class="sub">43</span></td><td>Pas de restriction</td><td class="num">6 <span class="sub">sur 6</span></td><td class="num">5 <span class="sub">83 %</span></td><td>Très bas</td><td><span class="flag">Niveaux bas sans restriction</span></td></tr>
+<tr data-flag=""><td>Loire-Atlantique <span class="sub">44</span></td><td>Crise</td><td class="num">20 <span class="sub">sur 46</span></td><td class="num">13 <span class="sub">65 %</span></td><td>Bas</td><td></td></tr>
+<tr data-flag="restricted_normal"><td>Loiret <span class="sub">45</span></td><td>Crise</td><td class="num">28 <span class="sub">sur 51</span></td><td class="num">9 <span class="sub">32 %</span></td><td>Autour de la normale</td><td><span class="flag">Restriction forte avec niveaux normaux</span></td></tr>
+<tr data-flag=""><td>Lot <span class="sub">46</span></td><td>Crise</td><td class="num">2 <span class="sub">sur 5</span></td><td class="num">2 <span class="sub">100 %</span></td><td>Bas</td><td></td></tr>
+<tr data-flag=""><td>Lot-et-Garonne <span class="sub">47</span></td><td>Pas de restriction</td><td class="num">29 <span class="sub">sur 47</span></td><td class="num">12 <span class="sub">41 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag=""><td>Lozère <span class="sub">48</span></td><td>Crise</td><td class="num">11 <span class="sub">sur 16</span></td><td class="num">4 <span class="sub">36 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag=""><td>Maine-et-Loire <span class="sub">49</span></td><td>Crise</td><td class="num">46 <span class="sub">sur 104</span></td><td class="num">14 <span class="sub">30 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag=""><td>Manche <span class="sub">50</span></td><td>Alerte renforcée</td><td class="num">9 <span class="sub">sur 15</span></td><td class="num">5 <span class="sub">56 %</span></td><td>Bas</td><td></td></tr>
+<tr data-flag=""><td>Marne <span class="sub">51</span></td><td>Alerte renforcée</td><td class="num">19 <span class="sub">sur 22</span></td><td class="num">16 <span class="sub">84 %</span></td><td>Très bas</td><td></td></tr>
+<tr data-flag=""><td>Haute-Marne <span class="sub">52</span></td><td>Alerte renforcée</td><td class="num">10 <span class="sub">sur 12</span></td><td class="num">7 <span class="sub">70 %</span></td><td>Très bas</td><td></td></tr>
+<tr data-flag=""><td>Mayenne <span class="sub">53</span></td><td>Crise</td><td class="num">11 <span class="sub">sur 13</span></td><td class="num">6 <span class="sub">55 %</span></td><td>Bas</td><td></td></tr>
+<tr data-flag=""><td>Meurthe-et-Moselle <span class="sub">54</span></td><td>Alerte renforcée</td><td class="num">13 <span class="sub">sur 18</span></td><td class="num">5 <span class="sub">38 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag=""><td>Meuse <span class="sub">55</span></td><td>Crise</td><td class="num">13 <span class="sub">sur 15</span></td><td class="num">9 <span class="sub">69 %</span></td><td>Très bas</td><td></td></tr>
+<tr data-flag=""><td>Morbihan <span class="sub">56</span></td><td>Crise</td><td class="num">12 <span class="sub">sur 12</span></td><td class="num">8 <span class="sub">67 %</span></td><td>Bas</td><td></td></tr>
+<tr data-flag=""><td>Moselle <span class="sub">57</span></td><td>Alerte renforcée</td><td class="num">14 <span class="sub">sur 18</span></td><td class="num">4 <span class="sub">29 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag=""><td>Nièvre <span class="sub">58</span></td><td>Crise</td><td class="num">11 <span class="sub">sur 11</span></td><td class="num">7 <span class="sub">64 %</span></td><td>Bas</td><td></td></tr>
+<tr data-flag=""><td>Nord <span class="sub">59</span></td><td>Crise</td><td class="num">21 <span class="sub">sur 43</span></td><td class="num">11 <span class="sub">52 %</span></td><td>Bas</td><td></td></tr>
+<tr data-flag=""><td>Oise <span class="sub">60</span></td><td>Alerte renforcée</td><td class="num">25 <span class="sub">sur 38</span></td><td class="num">5 <span class="sub">20 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag=""><td>Orne <span class="sub">61</span></td><td>Alerte renforcée</td><td class="num">3 <span class="sub">sur 3</span></td><td class="num">1 <span class="sub">33 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag=""><td>Pas-de-Calais <span class="sub">62</span></td><td>Alerte renforcée</td><td class="num">33 <span class="sub">sur 42</span></td><td class="num">14 <span class="sub">42 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag=""><td>Puy-de-Dôme <span class="sub">63</span></td><td>Crise</td><td class="num">21 <span class="sub">sur 24</span></td><td class="num">12 <span class="sub">57 %</span></td><td>Bas</td><td></td></tr>
+<tr data-flag=""><td>Pyrénées-Atlantiques <span class="sub">64</span></td><td>Crise</td><td class="num">23 <span class="sub">sur 32</span></td><td class="num">11 <span class="sub">48 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag=""><td>Hautes-Pyrénées <span class="sub">65</span></td><td>Crise</td><td class="num">4 <span class="sub">sur 8</span></td><td class="num">2 <span class="sub">50 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag="restricted_normal"><td>Pyrénées-Orientales <span class="sub">66</span></td><td>Crise</td><td class="num">31 <span class="sub">sur 47</span></td><td class="num">9 <span class="sub">29 %</span></td><td>Autour de la normale</td><td><span class="flag">Restriction forte avec niveaux normaux</span></td></tr>
+<tr data-flag=""><td>Bas-Rhin <span class="sub">67</span></td><td>Alerte renforcée</td><td class="num">26 <span class="sub">sur 47</span></td><td class="num">16 <span class="sub">62 %</span></td><td>Bas</td><td></td></tr>
+<tr data-flag=""><td>Haut-Rhin <span class="sub">68</span></td><td>Crise</td><td class="num">29 <span class="sub">sur 48</span></td><td class="num">12 <span class="sub">41 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag="restricted_normal"><td>Rhône <span class="sub">69</span></td><td>Crise</td><td class="num">13 <span class="sub">sur 13</span></td><td class="num">4 <span class="sub">31 %</span></td><td>Autour de la normale</td><td><span class="flag">Restriction forte avec niveaux normaux</span></td></tr>
+<tr data-flag=""><td>Haute-Saône <span class="sub">70</span></td><td>Crise</td><td class="num">10 <span class="sub">sur 10</span></td><td class="num">5 <span class="sub">50 %</span></td><td>Bas</td><td></td></tr>
+<tr data-flag=""><td>Saône-et-Loire <span class="sub">71</span></td><td>Crise</td><td class="num">14 <span class="sub">sur 14</span></td><td class="num">7 <span class="sub">50 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag=""><td>Sarthe <span class="sub">72</span></td><td>Alerte renforcée</td><td class="num">21 <span class="sub">sur 21</span></td><td class="num">5 <span class="sub">24 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag=""><td>Savoie <span class="sub">73</span></td><td>Crise</td><td class="num">3 <span class="sub">sur 3</span></td><td class="num">2 <span class="sub">67 %</span></td><td>Bas</td><td></td></tr>
+<tr data-flag=""><td>Haute-Savoie <span class="sub">74</span></td><td>Crise</td><td class="num">3 <span class="sub">sur 26</span></td><td class="num">1 <span class="sub">33 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag=""><td>Paris <span class="sub">75</span></td><td>Vigilance</td><td class="num">1 <span class="sub">sur 1</span></td><td class="num">0 <span class="sub">0 %</span></td><td>Haut</td><td></td></tr>
+<tr data-flag=""><td>Seine-Maritime <span class="sub">76</span></td><td>Alerte renforcée</td><td class="num">28 <span class="sub">sur 31</span></td><td class="num">8 <span class="sub">29 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag="restricted_normal"><td>Seine-et-Marne <span class="sub">77</span></td><td>Crise</td><td class="num">16 <span class="sub">sur 38</span></td><td class="num">3 <span class="sub">19 %</span></td><td>Autour de la normale</td><td><span class="flag">Restriction forte avec niveaux normaux</span></td></tr>
+<tr data-flag=""><td>Yvelines <span class="sub">78</span></td><td>Alerte renforcée</td><td class="num">7 <span class="sub">sur 14</span></td><td class="num">1 <span class="sub">14 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag=""><td>Deux-Sèvres <span class="sub">79</span></td><td>Crise</td><td class="num">27 <span class="sub">sur 28</span></td><td class="num">4 <span class="sub">15 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag=""><td>Somme <span class="sub">80</span></td><td>Alerte renforcée</td><td class="num">36 <span class="sub">sur 43</span></td><td class="num">3 <span class="sub">8 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag="restricted_normal"><td>Tarn <span class="sub">81</span></td><td>Crise</td><td class="num">5 <span class="sub">sur 8</span></td><td class="num">0 <span class="sub">0 %</span></td><td>Modérément haut</td><td><span class="flag">Restriction forte avec niveaux normaux</span></td></tr>
+<tr data-flag="restricted_normal"><td>Tarn-et-Garonne <span class="sub">82</span></td><td>Crise</td><td class="num">12 <span class="sub">sur 21</span></td><td class="num">1 <span class="sub">8 %</span></td><td>Modérément haut</td><td><span class="flag">Restriction forte avec niveaux normaux</span></td></tr>
+<tr data-flag=""><td>Var <span class="sub">83</span></td><td>Pas de restriction</td><td class="num">5 <span class="sub">sur 13</span></td><td class="num">1 <span class="sub">20 %</span></td><td>Autour de la normale</td><td></td></tr>
+<tr data-flag=""><td>Vaucluse <span class="sub">84</span></td><td>Alerte renforcée</td><td class="num">16 <span class="sub">sur 33</span></td><td class="num">8 <span class="sub">50 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag="restricted_normal"><td>Vendée <span class="sub">85</span></td><td>Crise</td><td class="num">16 <span class="sub">sur 18</span></td><td class="num">2 <span class="sub">12 %</span></td><td>Autour de la normale</td><td><span class="flag">Restriction forte avec niveaux normaux</span></td></tr>
+<tr data-flag="restricted_normal"><td>Vienne <span class="sub">86</span></td><td>Crise</td><td class="num">33 <span class="sub">sur 36</span></td><td class="num">1 <span class="sub">3 %</span></td><td>Modérément haut</td><td><span class="flag">Restriction forte avec niveaux normaux</span></td></tr>
+<tr data-flag=""><td>Haute-Vienne <span class="sub">87</span></td><td>Crise</td><td class="num">11 <span class="sub">sur 12</span></td><td class="num">11 <span class="sub">100 %</span></td><td>Très bas</td><td></td></tr>
+<tr data-flag=""><td>Vosges <span class="sub">88</span></td><td>Crise</td><td class="num">13 <span class="sub">sur 23</span></td><td class="num">9 <span class="sub">69 %</span></td><td>Très bas</td><td></td></tr>
+<tr data-flag=""><td>Yonne <span class="sub">89</span></td><td>Crise</td><td class="num">18 <span class="sub">sur 19</span></td><td class="num">6 <span class="sub">33 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag=""><td>Territoire de Belfort <span class="sub">90</span></td><td>Crise</td><td class="num">2 <span class="sub">sur 2</span></td><td class="num">1 <span class="sub">50 %</span></td><td>Bas</td><td></td></tr>
+<tr data-flag="restricted_normal"><td>Essonne <span class="sub">91</span></td><td>Alerte renforcée</td><td class="num">8 <span class="sub">sur 12</span></td><td class="num">2 <span class="sub">25 %</span></td><td>Modérément haut</td><td><span class="flag">Restriction forte avec niveaux normaux</span></td></tr>
+<tr data-flag=""><td>Seine-Saint-Denis <span class="sub">93</span></td><td>Vigilance</td><td class="num">0 <span class="sub">sur 1</span></td><td class="num">—</td><td>—</td><td></td></tr>
+<tr data-flag=""><td>Val-d&#x27;Oise <span class="sub">95</span></td><td>Pas de restriction</td><td class="num">6 <span class="sub">sur 6</span></td><td class="num">0 <span class="sub">0 %</span></td><td>Modérément haut</td><td></td></tr>
+<tr data-flag=""><td>Guadeloupe <span class="sub">971</span></td><td>Alerte</td><td class="num">16 <span class="sub">sur 27</span></td><td class="num">9 <span class="sub">56 %</span></td><td>Bas</td><td></td></tr>
+<tr data-flag="low_unrestricted"><td>Martinique <span class="sub">972</span></td><td>Pas de restriction</td><td class="num">23 <span class="sub">sur 32</span></td><td class="num">17 <span class="sub">74 %</span></td><td>Très bas</td><td><span class="flag">Niveaux bas sans restriction</span></td></tr>
+<tr data-flag="low_unrestricted"><td>Guyane <span class="sub">973</span></td><td>Pas de restriction</td><td class="num">4 <span class="sub">sur 10</span></td><td class="num">3 <span class="sub">75 %</span></td><td>Très bas</td><td><span class="flag">Niveaux bas sans restriction</span></td></tr>
+<tr data-flag=""><td>La Réunion <span class="sub">974</span></td><td>Crise</td><td class="num">36 <span class="sub">sur 43</span></td><td class="num">12 <span class="sub">33 %</span></td><td>Modérément bas</td><td></td></tr>
+<tr data-flag=""><td>Mayotte <span class="sub">976</span></td><td>Pas de restriction</td><td class="num">14 <span class="sub">sur 20</span></td><td class="num">1 <span class="sub">7 %</span></td><td>Modérément haut</td><td></td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>Les plus bas de septembre 2026</h2>
+  <p class="note">488 piézomètres « très bas » ; voici les 40 dont la probabilité est la plus basse. Chaque nom ouvre sa courbe sur la page en espagnol.</p>
+  <div class="wrap"><table class="t">
+    <thead><tr><th>Piézomètre</th><th>Département</th><th>Masse d'eau</th><th class="num">Niveau<br><abbr title="mètres au-dessus du niveau de la mer (nivellement général de la France)">m NGF</abbr></th>
+    <th class="num">Années de<br>référence</th><th>Classe</th></tr></thead>
+    <tbody>
+<tr><td><a href="../#BSS000YZZZ">Durrenentzen</a><span class="sub">03428X0029/89</span></td><td>Haut-Rhin</td><td>Nappe d’Alsace, Pliocène de Haguenau et Oligocène</td><td class="num">182,37</td><td class="num">72</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS000VDGE">Lipsheim</a><span class="sub">02726X0029/238</span></td><td>Bas-Rhin</td><td>Nappe d’Alsace, Pliocène de Haguenau et Oligocène</td><td class="num">145,42</td><td class="num">71</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS000WYCX">Ebersheim</a><span class="sub">03078X0014/214</span></td><td>Bas-Rhin</td><td>Nappe d’Alsace, Pliocène de Haguenau et Oligocène</td><td class="num">161,83</td><td class="num">71</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS000UWGY">Meistratzheim</a><span class="sub">02718X0017/233</span></td><td>Bas-Rhin</td><td>Nappe d’Alsace, Pliocène de Haguenau et Oligocène</td><td class="num">151,86</td><td class="num">70</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS000QQKW">Munchhausen</a><span class="sub">01993X0002/362A</span></td><td>Bas-Rhin</td><td>Nappe d’Alsace, Pliocène de Haguenau et Oligocène</td><td class="num">108,60</td><td class="num">62</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS000QQVG">Schirrhein</a><span class="sub">01995X0007/343</span></td><td>Bas-Rhin</td><td>Nappe d’Alsace, Pliocène de Haguenau et Oligocène</td><td class="num">119,85</td><td class="num">61</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS000PUUK">Vanault-le-Châtel</a><span class="sub">01894X0002/S1</span></td><td>Marne</td><td>Craie de Champagne sud et centre</td><td class="num">136,56</td><td class="num">56</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS000RYUY">Hallignicourt</a><span class="sub">02267X0030/S1</span></td><td>Haute-Marne</td><td>Alluvions du Perthois</td><td class="num">133,03</td><td class="num">55</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS000LNRG">Penchard</a><span class="sub">01548X0010/S1</span></td><td>Seine-et-Marne</td><td>Éocène du Valois</td><td class="num">59,50</td><td class="num">54</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS000UJHK">Orvilliers-Saint-Julien</a><span class="sub">02617X0009/S1</span></td><td>Aube</td><td>Craie du Senonais et Pays d&#x27;Othe</td><td class="num">81,64</td><td class="num">54</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS000FZHJ">Bouvellemont</a><span class="sub">00868X0016/S1</span></td><td>Ardennes</td><td>Calcaires kimméridgiens-oxfordiens karstiques nord-est du district (entre Ornain et limite de district)</td><td class="num">234,73</td><td class="num">53</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS000UMRX">Vaux-sur-Blaise</a><span class="sub">02648X0020/S1</span></td><td>Haute-Marne</td><td>Calcaires tithoniens karstiques entre Seine et Ornain</td><td class="num">172,80</td><td class="num">52</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS000VCSC">Schaeffersheim</a><span class="sub">02725X0025/232A</span></td><td>Bas-Rhin</td><td>Nappe d’Alsace, Pliocène de Haguenau et Oligocène</td><td class="num">150,97</td><td class="num">52</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS001YKRY">Bouliac</a><span class="sub">08037X0169/F</span></td><td>Gironde</td><td>Sables, graviers, grès et calcaires de l&#x27;Eocène inférieur et moyen majoritairement captif du Nord du Bassin aquitain</td><td class="num">-18,13</td><td class="num">52</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS000HAQN">Sacy-le-Grand</a><span class="sub">01045X0015/S1</span></td><td>Oise</td><td>Craie picarde</td><td class="num">36,13</td><td class="num">51</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS000EFUM">Étaves-et-Bocquiaux</a><span class="sub">00497X0018/S1</span></td><td>Aisne</td><td>Craie de la vallée de la Somme amont</td><td class="num">92,00</td><td class="num">50</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS000UJXC">Rhèges</a><span class="sub">02621X0085/PZ</span></td><td>Aube</td><td>Alluvions de l&#x27;Aube</td><td class="num">80,03</td><td class="num">50</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS000HLVW">Semide</a><span class="sub">01097X0014/S1</span></td><td>Ardennes</td><td>Craie de Champagne nord</td><td class="num">115,72</td><td class="num">48</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS002CXHS">Lacquy</a><span class="sub">09266X0004/LC101</span></td><td>Landes</td><td>Sables et grès de l&#x27;Eocène inférieur et moyen majoritairement captif du Sud-Ouest du Bassin aquitain</td><td class="num">76,39</td><td class="num">47</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS000WSAS">Essegney</a><span class="sub">03043X0056/PZ4</span></td><td>Vosges</td><td>Alluvions de la Meurthe, de la Moselle et de leurs affluents</td><td class="num">265,87</td><td class="num">45</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS001ZNWC">Portets</a><span class="sub">08278X0127/F1</span></td><td>Gironde</td><td>Sables, graviers, grès et calcaires de l&#x27;Eocène inférieur et moyen majoritairement captif du Nord du Bassin aquitain</td><td class="num">-21,02</td><td class="num">44</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS000DPPU">Taisnières-en-Thiérache</a><span class="sub">00383X0229/PZSP6</span></td><td>Nord</td><td>Calcaires de l&#x27;Avesnois</td><td class="num">133,49</td><td class="num">43</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS001LSKK">Vornay</a><span class="sub">05471X0070/P1</span></td><td>Cher</td><td>Calcaires et marnes du Jurassique supérieur du bassin versant de Yèvre-Auron libres</td><td class="num">149,97</td><td class="num">43</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS002HRMG">Monbardon</a><span class="sub">10078X0001/F</span></td><td>Gers</td><td>Sables et grès de l&#x27;Eocène inférieur et moyen majoritairement captif du Sud-Ouest du Bassin aquitain</td><td class="num">171,64</td><td class="num">43</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS000LZTE">Nubécourt</a><span class="sub">01616X0006/S1</span></td><td>Meuse</td><td>Calcaires tithoniens karstiques entre Ornain et limite du district</td><td class="num">213,56</td><td class="num">42</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS002HVPP">Eaunes</a><span class="sub">10098A0004/F</span></td><td>Haute-Garonne</td><td>Sables et argiles à graviers de l&#x27;Eocène inférieur et moyen majoritairement captif du Sud-Est du Bassin aquitain</td><td class="num">159,43</td><td class="num">42</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS000QRWC">Beinheim</a><span class="sub">01997X0008/352E</span></td><td>Bas-Rhin</td><td>Nappe d’Alsace, Pliocène de Haguenau et Oligocène</td><td class="num">110,82</td><td class="num">41</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS000PYWZ">Villers-en-Haye</a><span class="sub">01937X0054/F</span></td><td>Meurthe-et-Moselle</td><td>Calcaires du Dogger des côtes de Moselle versant Rhin</td><td class="num">191,02</td><td class="num">40</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS000FLDL">Fontaine-le-Bourg</a><span class="sub">00775X0099/F14</span></td><td>Seine-Maritime</td><td>Craie altérée de l&#x27;estuaire de la Seine hors pointe de Caux</td><td class="num">70,93</td><td class="num">39</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS002HRNC">Polastron</a><span class="sub">10082X0001/F</span></td><td>Gers</td><td>Sables et grès de l&#x27;Eocène inférieur et moyen majoritairement captif du Sud-Ouest du Bassin aquitain</td><td class="num">109,69</td><td class="num">37</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS000ASUS">Steenbecque</a><span class="sub">00124X0023/F1</span></td><td>Nord</td><td>Sables du Landénien des Flandres</td><td class="num">9,40</td><td class="num">36</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS002PGLG">Saint-André</a><span class="sub">12273X0009/P14</span></td><td>La Réunion</td><td>Formations volcaniques du littoral Nord</td><td class="num">9,26</td><td class="num">36</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS002DYBG">Léon</a><span class="sub">09492X0014/F1</span></td><td>Landes</td><td>Sables et graviers du Pliocène captif du littoral aquitain</td><td class="num">13,09</td><td class="num">35</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS000WZBH">Benfeld</a><span class="sub">03081X0026/224</span></td><td>Bas-Rhin</td><td>Nappe d’Alsace, Pliocène de Haguenau et Oligocène</td><td class="num">155,49</td><td class="num">70</td><td>Très bas</td></tr>
+<tr><td><a href="../#BSS001TZCL">Salignac-sur-Charente</a><span class="sub">07074X0014/S</span></td><td>Charente-Maritime</td><td>Multicouches calcaire captif du Turonien-Coniacien-Santonien du Nord-Ouest du Bassin aquitain</td><td class="num">3,00</td><td class="num">34</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS002ABPM">Le Teich</a><span class="sub">08502X0104/F</span></td><td>Gironde</td><td>Sables et graviers plio-quaternaires de la Leyre, cours d&#x27;eau côtiers et milieux associés</td><td class="num">7,86</td><td class="num">34</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS000WQWP">Fréville</a><span class="sub">03027X0007/F1</span></td><td>Vosges</td><td>Calcaires du Dogger versant Meuse sud</td><td class="num">279,81</td><td class="num">33</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS000WTGL">Grandvillers</a><span class="sub">03057X0018/F</span></td><td>Vosges</td><td>Grès du Trias inférieur au sud de la faille de Vittel</td><td class="num">385,80</td><td class="num">33</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS000XYUW">Charbonnières</a><span class="sub">03243X0001/F</span></td><td>Eure-et-Loir</td><td>Sables et grès du Cénomanien captifs</td><td class="num">201,92</td><td class="num">33</td><td>Très bas · minimum de la série</td></tr>
+<tr><td><a href="../#BSS001HVNG">Lugny-Champagne</a><span class="sub">04938X0006/F</span></td><td>Cher</td><td>Calcaires et marnes du Jurassique supérieur du Berry oriental libres</td><td class="num">174,59</td><td class="num">33</td><td>Très bas · minimum de la série</td></tr>
+    </tbody>
+  </table></div>
+</main>
+<section class="method" id="methode">
+  <h2>Comment c'est calculé</h2>
+  <ol>
+    <li><b>Piézomètres.</b> Un piézomètre est un puits d'observation où l'on mesure le niveau de l'eau
+    souterraine (la nappe). Hub'Eau publie le réseau de suivi des eaux souterraines de France (banque ADES, BRGM,
+    le service géologique national). On suit les 2 763 piézomètres ayant au moins une mesure
+    dans les 45 derniers jours ; celui qui cesse de mesurer garde sa série et apparaît sans donnée.</li>
+    <li><b>Mesures.</b> On télécharge le niveau journalier, en mètres au-dessus du niveau de la mer (NGF), de toute
+    la série. On écarte les mesures que le producteur qualifie d'incorrectes et celles prises pendant un pompage ou
+    influencées par un pompage proche (nature « dynamique » ou « influencée »). Plusieurs mesures d'un même jour
+    comptent pour leur moyenne.</li>
+    <li><b>Mois.</b> Le niveau d'un mois est la moyenne de ses jours mesurés. Le mois évalué est le dernier mois
+    complet, septembre 2026. Il ne compte que s'il a au moins 66 % des mesures que ce
+    puits a d'habitude en un mois (la médiane des 24 mois précédents).</li>
+    <li><b>Comparaison avec sa propre histoire.</b> Le niveau de septembre est classé parmi les mois de septembre de
+    toutes les autres années de ce piézomètre ; il en faut au moins 15. Le rang donne la
+    probabilité empirique d'un niveau plus bas, rang / (n + 1), et cette probabilité donne la classe, avec les
+    seuils du bulletin du BRGM. C'est l'idée de l'indicateur piézométrique standardisé (IPS) du BRGM, sans ajuster
+    de loi. Un niveau plus bas que toutes les autres années est un « minimum de la série ».</li>
+    <li><b>Carte interpolée</b> (page en espagnol). Chaque point de la carte prend la moyenne des probabilités des
+    piézomètres classés à moins de 30 km, pondérée par l'inverse du carré de la distance. La couleur
+    est pleine jusqu'à 10 km du piézomètre le plus proche et s'estompe jusqu'à 30 km.</li>
+    <li><b>Départements.</b> Dans chaque département on compte les piézomètres classés et ceux qui sont « bas » ou
+    « très bas ». On les compare au niveau de restriction sécheresse en vigueur pour les eaux souterraines selon
+    VigiEau (le plus élevé des zones du département), lu chaque jour.</li>
+    <li><b>Indices.</b> Avec au moins 3 piézomètres classés, on signale « niveaux bas sans
+    restriction » si 50 % ou plus sont bas ou très bas et qu'il n'y a pas de restriction
+    sur les eaux souterraines au-delà de la vigilance ; et « restriction forte avec niveaux normaux » en alerte
+    renforcée ou en crise quand la médiane des piézomètres est autour de la normale ou plus haute (probabilité
+    au-dessus de 0,40). Ce sont des indices à regarder, pas des verdicts : le préfet décide avec plus
+    de données (débits, usages, arrêté-cadre).</li>
+    <li><b>Signaux.</b> <a href="../signals.json">signals.json</a> liste chaque piézomètre « bas » ou « très bas »,
+    avec sa commune (code INSEE), la date de sa dernière mesure et les mètres par rapport à l'habituel du mois, dans
+    le format commun des projets frères (<a href="https://github.com/Asensio94/estado-iba/blob/main/CONTRATO.md">CONTRATO.md</a>
+    d'État des IBA, type <code>groundwater_level</code>). Ce sont les mêmes classes que sur cette page : pas d'autre seuil.</li>
+  </ol>
+  <h3>Classes</h3>
+  <table class="params"><thead><tr><th>Classe</th><th class="num">Probabilité</th><th class="num">Piézomètres en septembre 2026</th></tr></thead>
+  <tbody>
+<tr><td>Très bas</td><td class="num">0,00 – 0,10</td><td class="num">488</td></tr>
+<tr><td>Bas</td><td class="num">0,10 – 0,20</td><td class="num">300</td></tr>
+<tr><td>Modérément bas</td><td class="num">0,20 – 0,40</td><td class="num">451</td></tr>
+<tr><td>Autour de la normale</td><td class="num">0,40 – 0,60</td><td class="num">327</td></tr>
+<tr><td>Modérément haut</td><td class="num">0,60 – 0,80</td><td class="num">255</td></tr>
+<tr><td>Haut</td><td class="num">0,80 – 0,90</td><td class="num">87</td></tr>
+<tr><td>Très haut</td><td class="num">0,90 – 1,00</td><td class="num">54</td></tr>
+  </tbody></table>
+  <h3>Piézomètres sans classe</h3>
+  <table class="params"><tbody>
+    <tr><th>Classés</th><td class="num">1 962</td></tr>
+    <tr><th>Sans mesure dans le mois</th><td class="num">105</td></tr>
+    <tr><th>Mois incomplet</th><td class="num">142</td></tr>
+    <tr><th>Moins de 15 ans de référence</th><td class="num">554</td></tr>
+  </tbody></table>
+  <h3>Validation</h3>
+  <p>Comparé au bulletin de situation hydrogéologique du BRGM du 1<sup>er</sup> octobre 2026 (septembre 2026), tel
+  que l'a cité la presse spécialisée :</p>
+  <table class="params"><thead><tr><th>Septembre 2026</th><th class="num">Ici</th><th class="num">BRGM</th></tr></thead><tbody>
+    <tr><td>Sous la normale (probabilité 0,40 ou moins)</td><td class="num">64,3 %</td><td class="num">66 %</td></tr>
+    <tr><td>La même chose un an plus tôt (mêmes piézomètres)</td><td class="num">30,7 %</td><td class="num">31 %</td></tr>
+    <tr><td>Niveau en baisse par rapport à août</td><td class="num">75,4 %</td><td class="num">81 %</td></tr>
+  </tbody></table>
+  <p>Le BRGM utilise une sélection de points de référence et ajuste une loi à chaque mois ; ici entrent tous les
+  piézomètres ayant 15 ans de référence et on utilise le rang des valeurs, sans ajustement. La baisse est mesurée
+  ici entre moyennes mensuelles, et par le BRGM sur la fin du mois.</p>
+  <h3>Limites</h3>
+  <ul>
+    <li>Les mesures des derniers mois sont brutes : le producteur peut les corriger en les validant. Les
+    3 derniers mois sont relus chaque jour.</li>
+    <li>VigiEau donne le niveau le plus élevé des zones d'alerte du département, qui ne coïncident pas avec les
+    nappes ; un département peut avoir une zone en crise et le reste sans restriction.</li>
+    <li>La restriction est celle du jour et le niveau celui du dernier mois complet.</li>
+    <li>Les nappes lentes (la craie du bassin parisien) et rapides (les karsts) ne réagissent pas de la même façon
+    à la pluie ; la classe dit comment chacune est par rapport à elle-même, pas laquelle va le plus mal.</li>
+    <li>Une série en baisse depuis longtemps (une nappe qui descend d'année en année à cause des prélèvements)
+    reste « très bas » mois après mois : la classe compare avec toutes les années de la série.</li>
+    <li>Les départements d'outre-mer sont dans le tableau mais pas sur la carte.</li>
+  </ul>
+</section>
+<footer class="site-footer">
+  <p class="principle">Données publiques, règles visibles et chaque chiffre relié à sa source. Des indices, pas des verdicts.</p>
+  <p>Niveaux : <a href="https://hubeau.eaufrance.fr/page/api-piezometrie">Hub'Eau, API Piézométrie</a> (banque
+  <a href="https://ades.eaufrance.fr/">ADES</a>, BRGM et producteurs), Licence Ouverte 2.0. Restrictions :
+  <a href="https://vigieau.gouv.fr/">VigiEau</a>, ministère de la Transition écologique, Licence Ouverte 2.0.
+  Contours des départements : IGN Admin Express via
+  <a href="https://github.com/gregoiredavid/france-geojson">france-geojson</a>, Licence Ouverte.
+  Données lues le 24/10/2026 à 13:42 (heure de Paris).</p>
+  <p>Code sur <a href="https://github.com/Asensio94/acuiferos-francia">GitHub</a> (MIT) ; données propres CC BY 4.0.</p>
+  <p class="hub"><a href="https://asensio94.github.io/terra-aperta/fr/">← Terra Aperta : tous les projets</a></p>
+  <nav aria-label="Projets frères">Projets frères :<ul class="siblings">
+    <li><a href="https://asensio94.github.io/sub-nocte/">Sub Nocte</a></li>
+    <li><a href="https://asensio94.github.io/vigia-incendios/fr/">Vigie des incendies</a></li>
+    <li><a href="https://asensio94.github.io/centinela-natura/fr/">Centinela Natura</a></li>
+    <li><a href="https://asensio94.github.io/estado-iba/fr/">État des IBA</a></li>
+    <li><a href="https://asensio94.github.io/riesgo-tendidos-aves/regions.fr.html">Risque des lignes pour les oiseaux</a></li>
+    <li><a href="https://asensio94.github.io/observatorio-alegaciones/">Observatoire des consultations</a></li>
+    <li><a href="https://asensio94.github.io/grafo-promotores/">Graphe des porteurs de projet</a></li>
+    <li><a href="https://asensio94.github.io/vigilancia-humedales/france.html">Veille des zones humides</a></li>
+    <li><a href="https://asensio94.github.io/caudal-ecologico/">Débit écologique</a></li>
+    <li aria-current="page">Nappes de France</li>
+    <li><a href="https://asensio94.github.io/depuracion-y-bano/fr/">Épuration et baignade</a></li>
+    <li><a href="https://asensio94.github.io/zona-inundable/">Construire en zone inondable</a></li>
+  </ul></nav>
+</footer>
+</body>
+</html>

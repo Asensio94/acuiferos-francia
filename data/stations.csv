@@ -2501,7 +2501,7 @@ BSS002NAQG,11106X0027/SOURCE,2B096,Corte,2B,Haute-Corse,9.15054,42.31855,450.0,2
 BSS002NBCD,11112X0081/FIUM-A,2B207,Penta-di-Casinca,2B,Haute-Corse,9.51989,42.44207,5.0,1977-01-05,2026-10-30,EG335,"Alluvions de la Plaine de la Marana-Casinca (Bevinco, Golo, Plaine de Mormorana, Fium'Alto)",PENTA DI CASINCA
 BSS002NBMZ,11128X0125/CHIUNI,2A065,Cargèse,2A,Corse-du-Sud,8.61235,42.1771,8.0,2002-01-05,2026-10-29,EG402,"Alluvions des fleuves côtiers du nord-ouest de la Corse (Ostriconi, Régino, Algajola, Fiume Secco et Figarella, Fango, Girolata, Tuara, Bussaglia, Chiuni, Sagone, Liamone, Liscia, Gravone et Prunelli)",CARGESE
 BSS002NCNK,11156X0009/BRAVON,2B143,Linguizzetta,2B,Haute-Corse,9.47311,42.26398,15.0,1984-01-02,2026-10-29,EG399,"Alluvions des fleuves côtiers de la Plaine-Orientale (Alesani, Bravona, Tavignano, Fium'Orbo et Abatesco, Travo)",LINGUIZETTA
-BSS002NCSD,11172X0119/COSCIA,2A090,Coggia,2A,Corse-du-Sud,8.75067,42.09143,6.11,1988-04-26,2026-10-30,EG402,"Alluvions des fleuves côtiers du nord-ouest de la Corse (Ostriconi, Régino, Algajola, Fiume Secco et Figarella, Fango, Girolata, Tuara, Bussaglia, Chiuni, Sagone, Liamone, Liscia, Gravone et Prunelli)",COGGIA
+BSS002NCSD,11172X0119/COSCIA,2A090,Coggia,2A,Corse-du-Sud,8.75067,42.09143,6.11,1988-04-26,2026-10-31,EG402,"Alluvions des fleuves côtiers du nord-ouest de la Corse (Ostriconi, Régino, Algajola, Fiume Secco et Figarella, Fango, Girolata, Tuara, Bussaglia, Chiuni, Sagone, Liamone, Liscia, Gravone et Prunelli)",COGGIA
 BSS002NDLX,11177X0173/P2,2A271,Sarrola-Carcopino,2A,Corse-du-Sud,8.82034,41.95604,9.93,2002-03-13,2026-10-30,EG402,"Alluvions des fleuves côtiers du nord-ouest de la Corse (Ostriconi, Régino, Algajola, Fiume Secco et Figarella, Fango, Girolata, Tuara, Bussaglia, Chiuni, Sagone, Liamone, Liscia, Gravone et Prunelli)",SARROLA-CARCOPINO
 BSS002NDSB,11184X0122/BOLERO,2B229,Pietroso,2B,Haute-Corse,9.27031,42.15676,530.0,2025-08-08,2026-10-29,EG605,Formations métamorphiques du Cap-Corse et de l'Est de la Corse,SOURCE BOLERO
 BSS002NDVV,11188X0151/ANTAL,2B342,Ventiseri,2B,Haute-Corse,9.33885,41.95737,351.0,2013-03-12,2026-10-20,EG211,Flyschs éocènes de Solenzara,VENTISERI ANTALOGO
@@ -2633,7 +2633,7 @@ BSS002PMAT,12307X0011/KAWE1,97611,Mamoudzou,976,Mayotte,45.22084,-12.76911,12.83
 BSS002PMBF,12307X0023/KOUAL2,97611,Mamoudzou,976,Mayotte,45.17881,-12.80179,70.67,2000-09-27,2026-10-29,MG002,Volcanisme du massif du Mtsapere,PIÉZOMÈTRE DE KWALÉ 2 - MAMOUDZOU (976)
 BSS002PNML,12308X0086/PZ4,97608,Dzaoudzi,976,Mayotte,45.27976,-12.78593,21.01,2009-10-23,2026-10-29,MG003,Volcanisme de Petite Terre,PIÉZOMÈTRE DE LABATTOIR 4 - DZAOUDZI-LABATTOIR (976)
 BSS002PNXS,12312X0030/KAHA1,97614,Ouangani,976,Mayotte,45.12973,-12.82302,116.69,1992-11-13,2026-10-29,MG004,Volcanisme du massif du Digo,PIÉZOMÈTRE DE KAHANI 1 - OUANGANI (976)
-BSS002PNXW,12312X0034/MRERE1,97606,Chirongui,976,Mayotte,45.15869,-12.9067,18.51,1992-11-10,2026-10-29,MG005,Volcanisme du complexe Sud,PIÉZOMÈTRE DE MRERENI 1 CAMPAGNE 1999-2000 - CHIRONGUI (976)
+BSS002PNXW,12312X0034/MRERE1,97606,Chirongui,976,Mayotte,45.15869,-12.9067,18.51,1992-11-10,2026-10-30,MG005,Volcanisme du complexe Sud,PIÉZOMÈTRE DE MRERENI 1 CAMPAGNE 1999-2000 - CHIRONGUI (976)
 BSS002PNYJ,12312X0050/PORO,97606,Chirongui,976,Mayotte,45.1468,-12.89009,35.28,2003-11-19,2026-10-30,MG005,Volcanisme du complexe Sud,FORAGE DE POROANI
 BSS002PPKL,12313X0020/HANJ1,97607,Dembeni,976,Mayotte,45.2004,-12.87051,12.58,1992-11-10,2026-10-30,MG005,Volcanisme du complexe Sud,PIÉZOMÈTRE DE HAJANGUA 1- DEMBENI  (976)
 BSS002PPKM,12313X0021/TSARA1,97607,Dembeni,976,Mayotte,45.17288,-12.84018,12.43,2000-09-27,2026-10-29,MG005,Volcanisme du complexe Sud,FORAGE DE TSARARANO 1 - DEMBENI (976)
@@ -2764,6 +2764,7 @@ BSS004ESZD,BSS004ESZD/X,84043,Entraigues-sur-la-Sorgue,84,Vaucluse,4.93105,44.02
 BSS004ESZE,BSS004ESZE/X,13004,Arles,13,Bouches-du-Rhône,4.62744,43.70982,5.68,2022-08-26,2026-10-29,DG323,Alluvions du Rhône du confluent de la Durance jusqu'à Arles et Beaucaire et alluvions du Bas Gardon,ARLES - MAS MOLLIN
 BSS004FHCY,BSS004FHCY/X,06066,Gilette,06,Alpes-Maritimes,7.18861,43.83175,116.45,2024-02-07,2026-10-29,DG396,Alluvions de la basse vallée du Var,GILETTE_PZ4
 BSS004GCQN,BSS004GCQN/X,27299,Gravigny,27,Eure,1.16172,49.05751,54.49,2024-01-19,2026-09-23,,,PIÉZOMÈTRE
+BSS004GJSX,BSS004GJSX/X,64125,Bidart,64,Pyrénées-Atlantiques,-1.5913,43.44132,74.54,2026-09-01,2026-10-02,,,B-FD01
 BSS004GJTB,BSS004GJTB/X,64125,Bidart,64,Pyrénées-Atlantiques,-1.59128,43.44133,74.7,2023-01-24,2026-10-02,,,B-FC01BIS
 BSS004GXNB,BSS004GXNB/X,84129,Sorgues,84,Vaucluse,4.88649,44.02785,35.12,2025-02-26,2026-08-31,DG218,Molasses miocènes du Comtat,FORAGE 2 AVIGNON LOG
 BSS004GZJL,BSS004GZJL/X,49228,Noyant-Villages,49,Maine-et-Loire,0.11561,47.51199,86.29,2023-10-04,2026-09-30,GG142,Sables et grès du Cénomanien captifs,BOUTON CÉNO

@@ -1999,7 +1999,7 @@ BSS002CQGN,09172X0078/P,05118,Val Buëch-Méouge,05,Hautes-Alpes,5.86295,44.2312
 BSS002CQHE,09172X0094/P,04209,Sisteron,04,Alpes-de-Haute-Provence,5.93517,44.21598,466.0,1982-08-30,2026-11-05,DG394,Alluvions Durance amont,SISTERON - LE PUITS ISNARD
 BSS002CRPM,09233X0042/F,40157,Lit-et-Mixe,40,Landes,-1.25716,44.03244,23.0,2001-01-01,2026-11-01,FG084,"Faluns, grès et sables de l'Helvétien (Miocène) majoritairement captif de l'Ouest du Bassin aquitain",LACROIX
 BSS002CTVK,09246X0098/F17,40197,Morcenx-la-Nouvelle,40,Landes,-0.90666,43.98392,79.0,1998-05-01,2026-11-01,FG046A,Sables et graviers plio-quaternaires de la Midouze et de l'Adour,DFCI N°295
-BSS002CUDR,09247X0111/F,40040,Beylongue,40,Landes,-0.86241,43.93599,71.0,1988-10-01,2026-11-01,FG084,"Faluns, grès et sables de l'Helvétien (Miocène) majoritairement captif de l'Ouest du Bassin aquitain",Périchéou
+BSS002CUDR,09247X0111/F,40040,Beylongue,40,Landes,-0.86241,43.93599,71.0,1988-10-01,2026-11-08,FG084,"Faluns, grès et sables de l'Helvétien (Miocène) majoritairement captif de l'Ouest du Bassin aquitain",Périchéou
 BSS002CVQR,09257X0037/F,40250,Saint-Avit,40,Landes,-0.48786,43.95184,72.0,1997-06-04,2026-11-01,FG070,"Faluns, grès et calcaires de l'Aquitanien-Burdigalien (Miocène) majoritairement captif de l'Ouest du Bassin aquitain",Lacrouts-Aquitanien
 BSS002CVQV,09257X0042/PZ2,40250,Saint-Avit,40,Landes,-0.48309,43.96682,73.7,2005-07-07,2026-11-01,FG046A,Sables et graviers plio-quaternaires de la Midouze et de l'Adour,PETCHON-SABLES (SAINT-AVIT - 40)
 BSS002CVQW,09257X0043/P,40250,Saint-Avit,40,Landes,-0.4878,43.95184,72.0,2000-11-29,2026-11-01,FG046A,Sables et graviers plio-quaternaires de la Midouze et de l'Adour,DFCI N°259-Sables
@@ -2652,7 +2652,7 @@ BSS002PMAT,12307X0011/KAWE1,97611,Mamoudzou,976,Mayotte,45.22084,-12.76911,12.83
 BSS002PMBF,12307X0023/KOUAL2,97611,Mamoudzou,976,Mayotte,45.17881,-12.80179,70.67,2000-09-27,2026-11-06,MG002,Volcanisme du massif du Mtsapere,PIÉZOMÈTRE DE KWALÉ 2 - MAMOUDZOU (976)
 BSS002PNML,12308X0086/PZ4,97608,Dzaoudzi,976,Mayotte,45.27976,-12.78593,21.01,2009-10-23,2026-11-06,MG003,Volcanisme de Petite Terre,PIÉZOMÈTRE DE LABATTOIR 4 - DZAOUDZI-LABATTOIR (976)
 BSS002PNXS,12312X0030/KAHA1,97614,Ouangani,976,Mayotte,45.12973,-12.82302,116.69,1992-11-13,2026-11-05,MG004,Volcanisme du massif du Digo,PIÉZOMÈTRE DE KAHANI 1 - OUANGANI (976)
-BSS002PNXW,12312X0034/MRERE1,97606,Chirongui,976,Mayotte,45.15869,-12.9067,18.51,1992-11-10,2026-11-07,MG005,Volcanisme du complexe Sud,PIÉZOMÈTRE DE MRERENI 1 CAMPAGNE 1999-2000 - CHIRONGUI (976)
+BSS002PNXW,12312X0034/MRERE1,97606,Chirongui,976,Mayotte,45.15869,-12.9067,18.51,1992-11-10,2026-11-09,MG005,Volcanisme du complexe Sud,PIÉZOMÈTRE DE MRERENI 1 CAMPAGNE 1999-2000 - CHIRONGUI (976)
 BSS002PNYJ,12312X0050/PORO,97606,Chirongui,976,Mayotte,45.1468,-12.89009,35.28,2003-11-19,2026-11-04,MG005,Volcanisme du complexe Sud,FORAGE DE POROANI
 BSS002PPKL,12313X0020/HANJ1,97607,Dembeni,976,Mayotte,45.2004,-12.87051,12.58,1992-11-10,2026-11-05,MG005,Volcanisme du complexe Sud,PIÉZOMÈTRE DE HAJANGUA 1- DEMBENI  (976)
 BSS002PPKM,12313X0021/TSARA1,97607,Dembeni,976,Mayotte,45.17288,-12.84018,12.43,2000-09-27,2026-11-05,MG005,Volcanisme du complexe Sud,FORAGE DE TSARARANO 1 - DEMBENI (976)

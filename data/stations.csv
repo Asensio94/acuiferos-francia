@@ -1155,7 +1155,7 @@ BSS001NQUT,05891X0044/F,86121,Latillé,86,Vienne,0.07542,46.61861,146.1,1999-10-
 BSS001NQYX,05892X0032/F,86123,Boivre-la-Vallée,86,Vienne,0.0732,46.55938,145.79,1999-11-16,2026-11-12,GG064,Calcaires et marnes de l'Infra-Toarcien au nord du seuil du Poitou majoritairement captifs,PREILLE
 BSS001NRCK,05893X0037/S,86024,Béruges,86,Vienne,0.18036,46.56718,118.9,1992-06-23,2026-11-12,GG064,Calcaires et marnes de l'Infra-Toarcien au nord du seuil du Poitou majoritairement captifs,ABBAYE
 BSS001NSDT,05896X0058/CAGNOC,86083,Coulombiers,86,Vienne,0.16414,46.50635,153.56,1998-06-17,2026-11-13,GG063,Calcaires et marnes du Dogger du bassin versant du Clain libres,CAGNOCHE
-BSS001NTDF,05903X0022/F,86114,Jardres,86,Vienne,0.56507,46.56883,114.0,2016-12-06,2026-11-13,GG067,Calcaires à silex et marnes captifs du Dogger sud bassin parisien,
+BSS001NTDF,05903X0022/F,86114,Jardres,86,Vienne,0.56507,46.56883,114.0,2016-12-06,2026-11-17,GG067,Calcaires à silex et marnes captifs du Dogger sud bassin parisien,JARDRES
 BSS001NTFS,05903X0090/PIEZO,86031,Bonnes,86,Vienne,0.59727,46.60017,67.88,2004-01-05,2026-11-13,GG067,Calcaires à silex et marnes captifs du Dogger sud bassin parisien,BONNES
 BSS001NTMY,05905X0047/F2,86209,Roches-Prémarie-Andillé,86,Vienne,0.37073,46.48199,125.76,1999-10-19,2026-11-13,GG063,Calcaires et marnes du Dogger du bassin versant du Clain libres,VAMOREAU
 BSS001NUHP,05914X0007/PAEP,36197,Saint-Hilaire-sur-Benaize,36,Indre,1.07482,46.56204,132.89,1994-12-27,2026-11-13,GG068,Calcaires et marnes du Dogger et du jurassique supérieur en Creuse libres,LA VAUDIEU SAINT-HILAIRE-SUR-BENAIZE - 36
@@ -1198,7 +1198,7 @@ BSS001PPKQ,06126X0052/S,86082,Valence-en-Poitou,86,Vienne,0.18106,46.29871,112.1
 BSS001PPLR,06126X0078/S,86082,Valence-en-Poitou,86,Vienne,0.15502,46.30549,112.13,1987-06-18,2026-11-12,GG063,Calcaires et marnes du Dogger du bassin versant du Clain libres,COUHE1
 BSS001PQLN,06131X0035/DAUFFA,86141,Magné,86,Vienne,0.4191,46.35516,134.36,1998-06-16,2026-11-12,GG063,Calcaires et marnes du Dogger du bassin versant du Clain libres,DAUFFARD
 BSS001PREE,06135X0049/S,86097,La Ferrière-Airoux,86,Vienne,0.38559,46.33288,125.54,2000-06-28,2026-11-13,GG063,Calcaires et marnes du Dogger du bassin versant du Clain libres,LA CHARPRAIE
-BSS001PRQP,06137X0048/P,86276,Usson-du-Poitou,86,Vienne,0.58814,46.27229,146.0,2016-12-16,2026-11-13,GG063,Calcaires et marnes du Dogger du bassin versant du Clain libres,
+BSS001PRQP,06137X0048/P,86276,Usson-du-Poitou,86,Vienne,0.58814,46.27229,146.0,2016-12-16,2026-11-18,GG063,Calcaires et marnes du Dogger du bassin versant du Clain libres,VÉZIN
 BSS001PSCR,06143X0011/S,86165,Montmorillon,86,Vienne,0.91253,46.43484,125.0,1996-06-01,2026-11-13,GG068,Calcaires et marnes du Dogger et du jurassique supérieur en Creuse libres,MONTMORI
 BSS001PSXJ,06162X0008/F5,23018,Bazelat,23,Creuse,1.53134,46.36974,333.57,1991-09-13,2026-11-13,GG056,Bassin versant de la Gartempe,BAZELAT - LE POIRIER
 BSS001PTAH,06165X0008/F19,23177,Saint-Agnant-de-Versillat,23,Creuse,1.49503,46.32269,366.4,2003-12-18,2026-11-13,GG056,Bassin versant de la Gartempe,SAINT AGNANT DE VERSILLAT - LES SAUVAGES
@@ -1298,7 +1298,7 @@ BSS001RQHK,06606X0013/VI,17257,Néré,17,Charente-Maritime,-0.23553,45.97419,78.
 BSS001RQHM,06606X0015/F,17257,Néré,17,Charente-Maritime,-0.23553,45.97419,78.0,2002-01-01,2026-11-11,FG078A,"Sables, grès, calcaires et dolomies de l'infra-Toarcien libre et captif du Nord du Bassin aquitain",
 BSS001RQMM,06607X0024/F,17477,Villiers-Couture,17,Charente-Maritime,-0.15393,45.98142,102.81,1993-04-02,2026-11-13,FG016B,Calcaires du Jurassique supérieur du bassin versant de l'Aume-Couture,VILLIERS
 BSS001RQQE,06608X0027/AC-3,16317,Saint-Fraigne,16,Charente,-0.04162,45.95811,99.43,1993-07-21,2026-11-12,FG016B,Calcaires du Jurassique supérieur du bassin versant de l'Aume-Couture,FRAIGNE
-BSS001RRFZ,06613X0036/F1,16104,Condac,16,Charente,0.22763,46.02415,83.0,2001-05-11,2026-11-13,FG014,Calcaires du Jurassique moyen en rive droite de la Charente amont,
+BSS001RRFZ,06613X0036/F1,16104,Condac,16,Charente,0.22763,46.02415,83.0,2001-05-11,2026-11-15,FG014,Calcaires du Jurassique moyen en rive droite de la Charente amont,CONDAC
 BSS001RRGC,06613X0039/S,16292,Ruffec,16,Charente,0.18356,46.03725,96.51,1992-07-15,2026-11-13,FG014,Calcaires du Jurassique moyen en rive droite de la Charente amont,RUFFEC
 BSS001RRSZ,06616X0068/PIEZO,16083,Charmé,16,Charente,0.13647,45.94489,77.98,1995-07-06,2026-11-12,FG080A,Calcaires du Jurassique moyen et supérieur majoritairement captif du Nord du Bassin aquitain,BELLICOU
 BSS001RRXM,06617X0042/S,16361,Salles-de-Villefagnan,16,Charente,0.19539,45.95602,102.16,1993-06-15,2026-11-12,FG014,Calcaires du Jurassique moyen en rive droite de la Charente amont,SALLESVI
@@ -1375,7 +1375,7 @@ BSS001SLHN,06842X0015/S,17031,Ballans,17,Charente-Maritime,-0.20237,45.81467,75.
 BSS001SLHR,06842X0028/F,17427,Siecq,17,Charente-Maritime,-0.19321,45.82977,80.0,2002-01-01,2026-11-11,FG016A,Calcaires du Jurassique supérieur du bassin versant de l'Antenne,
 BSS001SLHU,06842X0031/P,17067,Brie-sous-Matha,17,Charente-Maritime,-0.25027,45.81898,38.0,2002-01-01,2026-11-11,FG016C,Calcaires du Jurassique supérieur du bassin versant de la Charente moyenne,
 BSS001SLLD,06843X0003/SOURCE,17062,Bresdon,17,Charente-Maritime,-0.1471,45.86371,80.0,2002-03-12,2026-11-11,FG016A,Calcaires du Jurassique supérieur du bassin versant de l'Antenne,
-BSS001SLRM,06844X0070/F,16228,Montigné,16,Charente,-0.07306,45.83079,87.0,2000-08-31,2026-11-13,FG016C,Calcaires du Jurassique supérieur du bassin versant de la Charente moyenne,
+BSS001SLRM,06844X0070/F,16228,Montigné,16,Charente,-0.07306,45.83079,87.0,2000-08-31,2026-11-17,FG016C,Calcaires du Jurassique supérieur du bassin versant de la Charente moyenne,MONTIGNE
 BSS001SLWL,06846X0070/F,17031,Ballans,17,Charente-Maritime,-0.22099,45.81391,40.0,2004-07-07,2026-11-12,FG016C,Calcaires du Jurassique supérieur du bassin versant de la Charente moyenne,
 BSS001SMDG,06851X0071/S,16005,Aigre,16,Charente,0.00519,45.89815,68.84,1992-07-08,2026-11-13,FG016B,Calcaires du Jurassique supérieur du bassin versant de l'Aume-Couture,AIGRE
 BSS001SMKV,06853X0053/S,16318,Saint-Front,16,Charente,0.25894,45.89493,67.4,1992-07-15,2026-11-13,FG078A,"Sables, grès, calcaires et dolomies de l'infra-Toarcien libre et captif du Nord du Bassin aquitain",MOUTON
@@ -1443,9 +1443,9 @@ BSS001TZSE,07077X0016/16,17027,Avy,17,Charente-Maritime,-0.50826,45.55249,31.0,2
 BSS001TZSM,07077X0023/S,17047,Biron,17,Charente-Maritime,-0.48154,45.57022,41.81,1993-04-06,2026-11-12,FG073A,Multicouches calcaire captif du Turonien-Coniacien-Santonien du Nord-Ouest du Bassin aquitain,BIRON
 BSS001TZST,07077X0030/PIEZO,17027,Avy,17,Charente-Maritime,-0.51204,45.55027,30.5,2003-06-19,2026-11-13,FG073A,Multicouches calcaire captif du Turonien-Coniacien-Santonien du Nord-Ouest du Bassin aquitain,LA ROCHE PIÉZO
 BSS001UBNJ,07091X0042/P,16348,Saint-Saturnin,16,Charente,0.04981,45.6854,44.03,1995-02-22,2026-11-12,FG016C,Calcaires du Jurassique supérieur du bassin versant de la Charente moyenne,LUNESSE
-BSS001UBUC,07092X0077/F,16026,Balzac,16,Charente,0.15042,45.71536,41.49,1995-06-19,2026-11-13,FG016C,Calcaires du Jurassique supérieur du bassin versant de la Charente moyenne,BALZAC
+BSS001UBUC,07092X0077/F,16026,Balzac,16,Charente,0.15042,45.71536,41.49,1995-06-19,2026-11-17,FG016C,Calcaires du Jurassique supérieur du bassin versant de la Charente moyenne,VOUILLAC
 BSS001UCEF,07094X0038/F,16232,Mornac,16,Charente,0.27482,45.67293,138.0,1991-10-16,2026-11-13,FG018,Calcaires du Jurassique moyen et supérieur du karst de la Rochefoucauld - système karstique de la Touvre,MORNAC
-BSS001UCKA,07095X0117/CAR,16101,Claix,16,Charente,0.06659,45.55088,95.0,2000-06-05,2026-11-13,FG093,Multicouche calcaire du Turonien-Coniacien-Santonien dans les bassins versants de la Charente et de la Seudre,
+BSS001UCKA,07095X0117/CAR,16101,Claix,16,Charente,0.06659,45.55088,95.0,2000-06-05,2026-11-17,FG093,Multicouche calcaire du Turonien-Coniacien-Santonien dans les bassins versants de la Charente et de la Seudre,CLAIX
 BSS001UCZG,07097X0057/3,16382,Torsac,16,Charente,0.19723,45.56874,97.93,1992-07-01,2026-11-12,FG093,Multicouche calcaire du Turonien-Coniacien-Santonien dans les bassins versants de la Charente et de la Seudre,TORSAC
 BSS001UCZQ,07097X0067/F,16119,Dignac,16,Charente,0.26,45.54338,153.21,1993-04-09,2026-11-12,FG093,Multicouche calcaire du Turonien-Coniacien-Santonien dans les bassins versants de la Charente et de la Seudre,DIGNAC
 BSS001UDHT,07101X0041/S,16093,Chazelles,16,Charente,0.38111,45.66593,125.13,1993-05-03,2026-11-13,FG018,Calcaires du Jurassique moyen et supérieur du karst de la Rochefoucauld - système karstique de la Touvre,CHAZELLE
@@ -2493,8 +2493,10 @@ BSS002LPHL,10578X0005/F,09238,Les Pujols,09,Ariège,1.73599,43.10538,264.0,2016-
 BSS002LPSM,10586X0226/F,09039,La Bastide-de-Bousignac,09,Ariège,1.89623,43.04818,346.0,2015-02-18,2026-10-24,FG043B,Molasses du bassin de la Garonne - Sud Toulousain,
 BSS002LPYG,10592X0012/AEP,11102,Couffoulens,11,Aude,2.30651,43.15522,125.0,2004-03-03,2026-11-12,DG366,Alluvions de l'Aude amont,COUFFOULENS
 BSS002LQFW,10601X0027/COUMAN,11251,Val-de-Dagne,11,Aude,2.56882,43.12358,207.86,2004-11-09,2026-11-12,DG110,Calcaires éocènes du massif de l'Alaric,MONTLAUR
-BSS002LQJK,10603X0027/F,11210,Luc-sur-Orbieu,11,Aude,2.78137,43.16822,50.58,2004-11-09,2026-11-09,DG530,Formations tertiaires BV Aude et alluvions de la Berre hors BV Fresquel,LUC-SUR-ORBIEU
+BSS002LQGB,10601X0032/F,11095,Comigne,11,Aude,2.58135,43.17043,140.0,1998-12-07,2026-10-27,,,FORAGE DEPARTEMENTAL (COMIGNE)
+BSS002LQJK,10603X0027/F,11210,Luc-sur-Orbieu,11,Aude,2.78137,43.16822,50.58,2004-11-09,2026-11-16,DG530,Formations tertiaires BV Aude et alluvions de la Berre hors BV Fresquel,LUC-SUR-ORBIEU
 BSS002LRCG,10613X0036/INRA,11262,Narbonne,11,Aude,3.13342,43.14755,5.89,1974-11-27,2026-11-13,DG109,Calcaires de la Clape,NARBONNE
+BSS002LREV,10615X0047/F0,11295,Portel-des-Corbières,11,Aude,2.92197,43.05453,27.0,2009-02-27,2026-11-18,DG156,Calcaires et marnes jurassiques et triasiques de la nappe charriée des Corbières,Forage Les Oubiels (Portel des Corbières-11)
 BSS002LRHD,10616X0029/PRADE,11379,Sigean,11,Aude,2.97765,43.02817,1.29,2003-12-11,2026-11-13,DG530,Formations tertiaires BV Aude et alluvions de la Berre hors BV Fresquel,SIGEAN
 BSS002LVVL,10651X0003/S,83069,Hyères,83,Var,6.16015,43.13309,7.0,2024-11-05,2026-11-13,DG343,Alluvions du Gapeau,HYÈRES - 54ÈME RA
 BSS002LWHM,10651X0293/P134B,83069,Hyères,83,Var,6.15971,43.12874,6.27,1991-02-12,2026-11-13,DG343,Alluvions du Gapeau,Hyères - le Moulin Premier
@@ -2699,7 +2701,7 @@ BSS002PMAT,12307X0011/KAWE1,97611,Mamoudzou,976,Mayotte,45.22084,-12.76911,12.83
 BSS002PMBF,12307X0023/KOUAL2,97611,Mamoudzou,976,Mayotte,45.17881,-12.80179,70.67,2000-09-27,2026-11-12,MG002,Volcanisme du massif du Mtsapere,PIÉZOMÈTRE DE KWALÉ 2 - MAMOUDZOU (976)
 BSS002PNML,12308X0086/PZ4,97608,Dzaoudzi,976,Mayotte,45.27976,-12.78593,21.01,2009-10-23,2026-11-13,MG003,Volcanisme de Petite Terre,PIÉZOMÈTRE DE LABATTOIR 4 - DZAOUDZI-LABATTOIR (976)
 BSS002PNXS,12312X0030/KAHA1,97614,Ouangani,976,Mayotte,45.12973,-12.82302,116.69,1992-11-13,2026-11-13,MG004,Volcanisme du massif du Digo,PIÉZOMÈTRE DE KAHANI 1 - OUANGANI (976)
-BSS002PNXW,12312X0034/MRERE1,97606,Chirongui,976,Mayotte,45.15869,-12.9067,18.51,1992-11-10,2026-11-15,MG005,Volcanisme du complexe Sud,PIÉZOMÈTRE DE MRERENI 1 CAMPAGNE 1999-2000 - CHIRONGUI (976)
+BSS002PNXW,12312X0034/MRERE1,97606,Chirongui,976,Mayotte,45.15869,-12.9067,18.51,1992-11-10,2026-11-17,MG005,Volcanisme du complexe Sud,PIÉZOMÈTRE DE MRERENI 1 CAMPAGNE 1999-2000 - CHIRONGUI (976)
 BSS002PNYJ,12312X0050/PORO,97606,Chirongui,976,Mayotte,45.1468,-12.89009,35.28,2003-11-19,2026-11-12,MG005,Volcanisme du complexe Sud,FORAGE DE POROANI
 BSS002PPKL,12313X0020/HANJ1,97607,Dembeni,976,Mayotte,45.2004,-12.87051,12.58,1992-11-10,2026-11-13,MG005,Volcanisme du complexe Sud,PIÉZOMÈTRE DE HAJANGUA 1- DEMBENI  (976)
 BSS002PPKM,12313X0021/TSARA1,97607,Dembeni,976,Mayotte,45.17288,-12.84018,12.43,2000-09-27,2026-11-12,MG005,Volcanisme du complexe Sud,FORAGE DE TSARARANO 1 - DEMBENI (976)

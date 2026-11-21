@@ -348,7 +348,7 @@ BSS000MJVS,01695X0131/F,67544,Wissembourg,67,Bas-Rhin,7.98343,49.01743,153.52,19
 BSS000MJYR,01696X0006/606,67432,Salmbach,67,Bas-Rhin,8.0772,48.97614,145.1,2017-02-15,2026-09-12,CG101,"Nappe d’Alsace, Pliocène de Haguenau et Oligocène",Puits 191 rue principale (SALMBACH -67) Pliocène
 BSS000MNBS,01727X0123/S3,50218,Granville,50,Manche,-1.58706,48.83798,34.0,2014-12-09,2026-11-13,HG513,Socle des bassins versants de la Sée et des Côtiers Granvillais,FORAGE DE LA FORGE (GRANVILLE - 50)
 BSS000MQHM,01764X0012/F3,14452,Morteaux-Coulibœuf,14,Calvados,-0.07525,48.92434,55.0,2007-04-27,2026-11-12,HG308,Bathonien-Bajocien de la plaine de Caen et du Bessin,Forage du Château de Blocqueville (Morteaux-Couliboeuf) - 14
-BSS000MQWY,01776X0023/P,61474,Gouffern en Auge,61,Orne,0.14486,48.80392,135.0,2006-03-01,2026-11-19,HG308,Bathonien-Bajocien de la plaine de Caen et du Bessin,Puits de l'ancienne école (Ommeel) - 61
+BSS000MQWY,01776X0023/P,61474,Gouffern en Auge,61,Orne,0.14486,48.80392,135.0,2006-03-01,2026-11-20,HG308,Bathonien-Bajocien de la plaine de Caen et du Bessin,Puits de l'ancienne école (Ommeel) - 61
 BSS000MRTR,01792X0020/PZ2,27565,Le Lesme,27,Eure,0.87263,48.89315,155.0,2003-01-23,2026-11-13,HG211,Craie altérée du Neubourg-Iton-plaine de Saint-André,Forage de Sainte Marguerite de l'Autel (Sainte-Marguerite-de-l'Autel) 
 BSS000MRWS,01794X0035/S1,27436,Nogent-le-Sec,27,Eure,1.02634,48.92007,159.0,1985-04-23,2026-11-13,HG211,Craie altérée du Neubourg-Iton-plaine de Saint-André,Puits Les Grands Gomberts (Nogent-le-Sec) - 27
 BSS000MRZZ,01796X0020/P,27054,Bémécourt,27,Eure,0.81346,48.82945,185.0,2022-07-27,2026-11-13,,,
@@ -1192,7 +1192,7 @@ BSS001PJQF,06114X0037/S,79303,Salles,79,Deux-Sèvres,-0.0884,46.38521,77.9,1996-
 BSS001PKJB,06115X0025/F4,79216,Prahecq,79,Deux-Sèvres,-0.35624,46.2697,34.0,1993-06-15,2026-11-13,GG062,Calcaires du Dogger du bassin versant amont de la Sèvre-Niortaise,PRAHECQ3
 BSS001PMZG,06121X0001/S,86213,Rouillé,86,Vienne,0.04069,46.42048,152.97,1996-05-30,2026-11-12,GG064,Calcaires et marnes de l'Infra-Toarcien au nord du seuil du Poitou majoritairement captifs,ROUILLE
 BSS001PNMC,06123X0044/S,86045,Celle-Lévescault,86,Vienne,0.1943,46.38667,111.08,1992-06-29,2026-11-12,GG064,Calcaires et marnes de l'Infra-Toarcien au nord du seuil du Poitou majoritairement captifs,CHOUE 3
-BSS001PNRK,06124X0026/F,86065,Château-Larcher,86,Vienne,0.31438,46.41732,98.95,2001-07-26,2026-11-12,GG064,Calcaires et marnes de l'Infra-Toarcien au nord du seuil du Poitou majoritairement captifs,FONTJOISE
+BSS001PNRK,06124X0026/F,86065,Château-Larcher,86,Vienne,0.31438,46.41732,98.95,2001-07-26,2026-11-15,GG064,Calcaires et marnes de l'Infra-Toarcien au nord du seuil du Poitou majoritairement captifs,FONTJOISE
 BSS001PNUW,06125X0035/S,86244,Saint-Sauvant,86,Vienne,0.04227,46.3431,147.31,1996-09-13,2026-11-13,GG062,Calcaires du Dogger du bassin versant amont de la Sèvre-Niortaise,SAUVANT
 BSS001PPKQ,06126X0052/S,86082,Valence-en-Poitou,86,Vienne,0.18106,46.29871,112.13,1987-06-18,2026-11-13,GG064,Calcaires et marnes de l'Infra-Toarcien au nord du seuil du Poitou majoritairement captifs,COUHE2
 BSS001PPLR,06126X0078/S,86082,Valence-en-Poitou,86,Vienne,0.15502,46.30549,112.13,1987-06-18,2026-11-12,GG063,Calcaires et marnes du Dogger du bassin versant du Clain libres,COUHE1
